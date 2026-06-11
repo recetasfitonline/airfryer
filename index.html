@@ -12,7 +12,1585 @@
   <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
   
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <style>
+/* ==========================================================================
+   EBOOK DE RECETAS SANAS PARA FREIDORA DE AIRE - ESTILOS
+   ========================================================================== */
+
+/* Importación de Fuentes Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* Variables de Diseño System-Wide */
+:root {
+  /* Tema Claro (Default) */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --border-color: #e2e8f0;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  
+  /* Gradientes Vibrantes */
+  --grad-primary: linear-gradient(135deg, #ff5e62, #ff9966); /* Naranja/Coral */
+  --grad-accent: linear-gradient(135deg, #11998e, #38ef7d);  /* Verde Esmeralda/Mentol */
+  --grad-berry: linear-gradient(135deg, #f857a6, #ff5858);   /* Baya/Rosado */
+  --grad-sunset: linear-gradient(135deg, #f12711, #f5af19);  /* Atardecer */
+  --grad-ocean: linear-gradient(135deg, #00c6ff, #0072ff);   /* Océano */
+  --grad-royal: linear-gradient(135deg, #654ea3, #eaafc8);   /* Violeta/Rosa */
+  
+  /* Sombras y Efectos */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  
+  /* Fuentes */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+/* Modo Oscuro */
+[data-theme="dark"] {
+  --bg-primary: #0b0f19;
+  --bg-secondary: #121824;
+  --bg-card: #151d30;
+  --bg-glass: rgba(21, 29, 48, 0.75);
+  --border-color: #1e293b;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Reset de Estilos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ==========================================================================
+   ESTILOS DE PANTALLA (WEB INTERACTIVA)
+   ========================================================================== */
+
+/* Portada del Ebook (Hero) */
+.cover-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(11, 15, 25, 0.9), rgba(21, 29, 48, 0.85)), 
+              url('https://res.cloudinary.com/daijidw3t/image/upload/v1781205656/cover_bg_duap5q.jpg') no-repeat center center/cover;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.cover-badge {
+  background: var(--grad-primary);
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(255, 94, 98, 0.4);
+  animation: fadeInDown 1s ease;
+}
+
+.cover-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+  animation: fadeInUp 1s ease 0.2s;
+  animation-fill-mode: both;
+}
+
+.cover-title span {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cover-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 300;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease 0.4s;
+  animation-fill-mode: both;
+}
+
+.cover-meta {
+  display: flex;
+  gap: 2rem;
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: fadeInUp 1s ease 0.6s;
+  animation-fill-mode: both;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.8rem;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Cabecera / Navegación */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color var(--transition-normal);
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-icon {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-icon:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-secondary);
+  transform: translateY(-2px);
+}
+
+.btn-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.btn-primary {
+  background: var(--grad-primary);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 94, 98, 0.3);
+}
+
+.btn-primary svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Introducción del Ebook */
+.intro-section {
+  max-width: 1000px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--grad-primary);
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.intro-image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background: var(--grad-sunset);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.intro-image:hover {
+  transform: scale(1.02);
+}
+
+.intro-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-box {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.feature-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--grad-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.feature-box h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.feature-box p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Buscador y Controles de Filtros */
+.search-filter-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.search-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  transition: all var(--transition-fast);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #ff9966;
+  box-shadow: 0 0 0 4px rgba(255, 153, 102, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  width: 24px;
+  height: 24px;
+}
+
+.filters-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-badge {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-badge:hover {
+  background-color: var(--border-color);
+}
+
+.filter-badge.active {
+  background: var(--grad-primary);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 10px rgba(255, 94, 98, 0.25);
+}
+
+.select-filter {
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.select-filter:focus {
+  border-color: #ff9966;
+}
+
+.favorites-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+
+.favorites-toggle input {
+  display: none;
+}
+
+.favorites-toggle .toggle-slider {
+  width: 44px;
+  height: 24px;
+  background-color: var(--text-muted);
+  border-radius: 50px;
+  position: relative;
+  transition: background-color var(--transition-fast);
+}
+
+.favorites-toggle .toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: white;
+  top: 3px;
+  left: 3px;
+  transition: transform var(--transition-fast);
+}
+
+.favorites-toggle input:checked + .toggle-slider {
+  background: var(--grad-berry);
+}
+
+.favorites-toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* Grid de Recetas */
+.recipes-section {
+  max-width: 1200px;
+  margin: 0 auto 5rem;
+  padding: 0 2rem;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.recipe-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-header-image {
+  height: 200px;
+  background: var(--grad-primary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.card-header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.recipe-card:hover .card-header-image img {
+  transform: scale(1.05);
+}
+
+.card-category-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.card-fav-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.card-fav-btn:hover {
+  transform: scale(1.1);
+}
+
+.card-fav-btn.is-fav {
+  color: #ff4757;
+}
+
+.card-fav-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.meta-val {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.card-footer-btn {
+  width: 100%;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.8rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.card-footer-btn:hover {
+  background: var(--grad-primary);
+  color: white;
+  border-color: transparent;
+}
+
+/* Modal Detalle de Receta */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-container {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  transform: scale(0.9);
+  transition: transform var(--transition-normal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-overlay.open .modal-container {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: rgba(15, 23, 42, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background-color: rgba(15, 23, 42, 0.9);
+  transform: rotate(90deg);
+}
+
+.modal-close svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.modal-banner {
+  height: 300px;
+  position: relative;
+  background: var(--grad-primary);
+}
+
+.modal-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, var(--bg-secondary), transparent);
+}
+
+.modal-content {
+  padding: 2rem 3rem 3rem;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+.modal-header-info {
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+}
+
+.modal-category {
+  display: inline-block;
+  background: var(--grad-primary);
+  color: white;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.modal-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.modal-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  background-color: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .modal-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+.modal-ingredients-instructions {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .modal-ingredients-instructions {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.modal-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.modal-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--grad-primary);
+}
+
+/* Listas de ingredientes interactivas */
+.ingredients-list {
+  list-style: none;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--border-color);
+  cursor: pointer;
+}
+
+.ingredient-item input {
+  margin-top: 0.25rem;
+  cursor: pointer;
+  accent-color: #ff9966;
+}
+
+.ingredient-item.checked {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* Pasos de Instrucciones */
+.steps-list {
+  list-style: none;
+}
+
+.step-item {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--grad-primary);
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.step-text {
+  padding-top: 0.2rem;
+}
+
+/* Tarjeta del Chef (Tips) */
+.chef-tips-card {
+  margin-top: 2.5rem;
+  background: linear-gradient(135deg, rgba(255, 94, 98, 0.05), rgba(255, 153, 102, 0.05));
+  border: 1px solid rgba(255, 153, 102, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.chef-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.chef-tips-content h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: #ff5e62;
+  margin-bottom: 0.3rem;
+}
+
+.chef-tips-content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Sin Resultados */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+}
+
+.no-results svg {
+  width: 60px;
+  height: 60px;
+  fill: currentColor;
+  margin-bottom: 1rem;
+}
+
+/* Pie de Página */
+.footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -10px);
+  }
+  60% {
+    transform: translate(-50%, -5px);
+  }
+}
+
+/* ==========================================================================
+   ESTILOS DE IMPRESIÓN / EXPORTACIÓN PDF
+   ========================================================================== */
+
+/* Contenedor invisible para impresión en pantalla, visible solo en print */
+#print-book-layout {
+  display: none;
+}
+
+@media print {
+  /* Variables específicas para impresión */
+  :root {
+    --bg-primary: #ffffff !important;
+    --bg-secondary: #ffffff !important;
+    --bg-card: #ffffff !important;
+    --text-primary: #000000 !important;
+    --text-secondary: #333333 !important;
+    --border-color: #cccccc !important;
+  }
+
+  /* Ocultar elementos interactivos de la pantalla */
+  body > *:not(#print-book-layout) {
+    display: none !important;
+  }
+
+  /* Mostrar la versión maquetada del libro */
+  #print-book-layout {
+    display: block !important;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  /* Configuración de página */
+  @page {
+    size: A4 portrait;
+    margin: 20mm;
+  }
+
+  /* Evitar saltos de página dentro de elementos clave */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  p, li, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Saltos de página explícitos */
+  .print-page {
+    page-break-before: always;
+    break-before: always;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .print-page:first-child {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  /* Portada de Impresión */
+  .print-cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 10px double #ff5e62;
+    padding: 30mm 15mm;
+  }
+
+  .print-cover-badge {
+    background: #ff5e62;
+    color: white;
+    padding: 4px 15px;
+    border-radius: 50px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-cover-title {
+    font-family: var(--font-serif);
+    font-size: 32pt;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .print-cover-subtitle {
+    font-size: 16pt;
+    color: #555;
+    margin-bottom: 50px;
+  }
+
+  .print-cover-meta {
+    margin-top: auto;
+    font-size: 10pt;
+    color: #777;
+    text-transform: uppercase;
+  }
+
+  /* Secciones Generales (TOC, Intro) */
+  .print-section {
+    padding: 10mm 0;
+  }
+
+  .print-section-title {
+    font-family: var(--font-serif);
+    font-size: 22pt;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #ff5e62;
+    padding-bottom: 5px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-intro-content {
+    font-size: 12pt;
+    line-height: 1.8;
+  }
+
+  /* Tabla de Contenido en Impresión */
+  .print-toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 40px;
+    font-size: 10.5pt;
+  }
+
+  .print-toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .print-toc-dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted #999;
+    margin: 0 10px;
+    position: relative;
+    top: -4px;
+  }
+
+  .print-toc-page {
+    font-weight: bold;
+  }
+
+  /* Separador de Categoría */
+  .print-category-divider {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40mm 15mm;
+  }
+
+  .print-cat-num {
+    font-size: 18pt;
+    color: #ff5e62;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+
+  .print-cat-name {
+    font-family: var(--font-serif);
+    font-size: 28pt;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  .print-cat-desc {
+    font-size: 13pt;
+    color: #555;
+    max-width: 500px;
+  }
+
+  /* Receta Individual de Impresión (1 por página) */
+  .print-recipe {
+    padding: 5mm 0;
+  }
+
+  .print-recipe-header-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-bottom: 2px solid #ff5e62;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-recipe-image-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    border: 1px solid #ddd;
+  }
+
+  .print-recipe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .print-recipe-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20pt;
+    color: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-recipe-category {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    color: #ff5e62;
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .print-recipe-title {
+    font-family: var(--font-serif);
+    font-size: 15pt;
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .print-recipe-id {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #ff5e62;
+    border: 2px solid #ff5e62;
+    padding: 3px 10px;
+    border-radius: 5px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-recipe-desc {
+    font-size: 9.5pt;
+    color: #444;
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  .print-recipe-meta {
+    display: flex;
+    gap: 30px;
+    background-color: #f5f5f5;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 9pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-meta-item strong {
+    color: #000000;
+  }
+
+  .print-recipe-body {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 30px;
+  }
+
+  .print-ingredients h4, .print-instructions h4 {
+    font-family: var(--font-serif);
+    font-size: 12pt;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+
+  .print-ingredients-list {
+    list-style: none;
+    font-size: 9pt;
+  }
+
+  .print-ingredients-list li {
+    padding: 4px 0;
+    border-bottom: 1px dashed #eee;
+  }
+
+  .print-instructions-list {
+    list-style: none;
+    font-size: 9pt;
+  }
+
+  .print-instructions-list li {
+    margin-bottom: 8px;
+    padding-left: 15px;
+    text-indent: -15px;
+  }
+
+  .print-instructions-list li strong {
+    color: #ff5e62;
+  }
+
+  .print-chef-tips {
+    margin-top: 20px;
+    background-color: #fff8f8;
+    border-left: 4px solid #ff5e62;
+    padding: 10px 15px;
+    font-size: 8.5pt;
+    font-style: italic;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-chef-tips strong {
+    font-style: normal;
+    color: #ff5e62;
+  }
+
+  .print-page-footer {
+    margin-top: auto;
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5pt;
+    color: #777;
+  }
+}
+
+/* ==========================================================================
+   Estilos del Placeholder para Recetas sin Imagen
+   ========================================================================== */
+.card-placeholder-illustration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.placeholder-glass {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12);
+  animation: float 4s ease-in-out infinite;
+}
+
+[data-theme="dark"] .placeholder-glass {
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.placeholder-emoji {
+  font-size: 3.2rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ==========================================================================
+   PANTALLA DE LOGIN
+   ========================================================================== */
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0b0f19;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.login-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.login-bg-decor {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 94, 98, 0.15) 0%, rgba(255, 153, 102, 0) 70%);
+  top: -100px;
+  right: -100px;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatDecor 10s ease-in-out infinite alternate;
+}
+
+@keyframes floatDecor {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50px, 50px); }
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(21, 29, 48, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  animation: loginCardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes loginCardAppear {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.login-logo {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.login-card h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.login-card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.login-overlay .input-group {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.login-overlay input[type="password"] {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 15, 25, 0.6);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  outline: none;
+  transition: all var(--transition-fast);
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.login-overlay input[type="password"]::placeholder {
+  letter-spacing: normal;
+  text-align: center;
+}
+
+.login-overlay input[type="password"]:focus {
+  border-color: #ff5e62;
+  box-shadow: 0 0 10px rgba(255, 94, 98, 0.2);
+}
+
+.login-error-msg {
+  color: #ff5e62;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  display: none;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.btn-login {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--grad-primary);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 94, 98, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 94, 98, 0.5);
+}
+
+.login-footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.25rem;
+}
+
+
+
+</style>
 </head>
 <body>
 
@@ -260,7 +1838,2866 @@
   </footer>
 
   <!-- Scripts JavaScript (Carga en orden) -->
-  <script src="js/recipes.js"></script>
-  <script src="js/app.js"></script>
+  <script>
+// Base de datos de 80 recetas saludables e innovadoras para freidora de aire
+// Generado automáticamente - No modificar a mano a menos que sea necesario
+
+const recipes = [
+  {
+    "id": 1,
+    "title": "Huevos en Cocotte con Espinacas y Queso Feta",
+    "category": "Desayunos y Brunch",
+    "prepTime": "5 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 180,
+    "difficulty": "Fácil",
+    "description": "Un desayuno elegante y reconfortante. Los huevos se cocinan suavemente sobre una cama de espinacas tiernas y queso feta salado.",
+    "ingredients": [
+      "2 huevos grandes",
+      "100g de espinacas frescas",
+      "40g de queso feta desmigado",
+      "1 cucharadita de aceite de oliva virgen extra",
+      "Sal y pimienta negra al gusto",
+      "Una pizca de nuez moscada"
+    ],
+    "steps": [
+      "Precalienta la freidora de aire a 160°C por 3 minutos.",
+      "Saltea las espinacas en una sartén con el aceite de oliva durante 1 minuto hasta que reduzcan, condiméntalas con sal, pimienta y nuez moscada.",
+      "Reparte las espinacas en dos moldes ramequines engrasados aptos para horno.",
+      "Añade el queso feta desmigado sobre las espinacas.",
+      "Casca un huevo en cada ramequín encima de las espinacas y el feta.",
+      "Coloca los ramequines en la cesta de la freidora de aire y cocina a 160°C durante 7-8 minutos, hasta que las claras estén cuajadas pero las yemas sigan líquidas.",
+      "Sirve caliente con una pizca adicional de pimienta negra por encima."
+    ],
+    "tips": "Si prefieres la yema más cocida, déjalos 2 minutos adicionales. Puedes acompañarlos con tostadas de pan integral integral."
+  },
+  {
+    "id": 2,
+    "title": "Muffins de Avena, Plátano y Arándanos",
+    "category": "Desayunos y Brunch",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "servings": 6,
+    "calories": 145,
+    "difficulty": "Fácil",
+    "description": "Muffins esponjosos sin azúcar refinado ni harinas procesadas, perfectos para un desayuno lleno de energía y fibra.",
+    "ingredients": [
+      "1.5 tazas de copos de avena triturados (harina de avena)",
+      "2 plátanos muy maduros machacados",
+      "2 huevos medianos",
+      "1/2 taza de yogur griego natural sin grasa",
+      "1 cucharadita de extracto de vainilla",
+      "1 cucharadita de polvo para hornear",
+      "1/2 taza de arándanos frescos",
+      "1 cucharadita de canela en polvo"
+    ],
+    "steps": [
+      "En un bol grande, mezcla los plátanos machacados, los huevos, el yogur griego y el extracto de vainilla hasta obtener una masa homogénea.",
+      "Añade la harina de avena, el polvo para hornear y la canela. Mezcla con suavidad.",
+      "Incorpora los arándanos con una espátula para evitar que se rompan.",
+      "Vierte la mezcla en 6 moldes de silicona para muffins previamente engrasados.",
+      "Precalienta la freidora de aire a 160°C.",
+      "Coloca los moldes en la cesta y cocina a 160°C durante 13-15 minutos. Verifica que estén listos insertando un palillo en el centro.",
+      "Deja enfriar antes de desmoldar."
+    ],
+    "tips": "Si los arándanos son congelados, pásalos por un poco de harina de avena antes de añadirlos para que no se hundan en la masa."
+  },
+  {
+    "id": 3,
+    "title": "Aguacates Rellenos de Huevo y Pavo",
+    "category": "Desayunos y Brunch",
+    "prepTime": "5 min",
+    "cookTime": "10 min",
+    "servings": 2,
+    "calories": 290,
+    "difficulty": "Fácil",
+    "description": "Una combinación deliciosa rica en grasas saludables y proteínas de alta calidad que te mantendrá saciado toda la mañana.",
+    "ingredients": [
+      "1 aguacate grande y maduro",
+      "2 huevos pequeños",
+      "2 lonchas de jamón de pavo picado en cubitos",
+      "Cebollino fresco picado",
+      "Sal, pimienta negra y copos de chile al gusto"
+    ],
+    "steps": [
+      "Corta el aguacate por la mitad y retira el hueso.",
+      "Saca un poco de pulpa de cada mitad con una cuchara para hacer el hueco más grande y asegurar que quepa el huevo.",
+      "Coloca las mitades de aguacate en la cesta de la freidora de aire (puedes usar moldes pequeños para que no se vuelquen).",
+      "Casca un huevo pequeño dentro del hueco de cada aguacate.",
+      "Sazona con sal y pimienta, y espolvorea los cubitos de jamón de pavo por encima.",
+      "Cocina a 180°C durante 8-10 minutos, dependiendo del punto deseado para la yema.",
+      "Decora con cebollino fresco y una pizca de copos de chile antes de servir."
+    ],
+    "tips": "Usa la pulpa que retiraste para untarla en una tostada o preparar un miniguacamole rápido de acompañamiento."
+  },
+  {
+    "id": 4,
+    "title": "Granola Casera de Quinoa y Nueces",
+    "category": "Desayunos y Brunch",
+    "prepTime": "5 min",
+    "cookTime": "12 min",
+    "servings": 8,
+    "calories": 160,
+    "difficulty": "Fácil",
+    "description": "Una granola súper crujiente y ligera hecha con quinoa y avena. Ideal para acompañar tus boles de yogur.",
+    "ingredients": [
+      "1 taza de copos de avena",
+      "1/2 taza de quinoa (lavada y bien seca)",
+      "1/2 taza de nueces picadas",
+      "2 cucharadas de semillas de chía",
+      "2 cucharadas de sirope de agave o miel pura",
+      "1 cucharada de aceite de coco derretido",
+      "1 cucharadita de canela",
+      "Una pizca de sal marina"
+    ],
+    "steps": [
+      "En un bol mediano, mezcla la avena, la quinoa, las nueces y las semillas de chía.",
+      "Añade el sirope de agave, el aceite de coco, la canela y la sal marina. Remueve bien para cubrir todos los ingredientes.",
+      "Coloca un papel de hornear en el fondo de la cesta de la freidora de aire.",
+      "Extiende la granola en una capa fina y uniforme sobre el papel.",
+      "Cocina a 160°C durante 10-12 minutos, asegurándote de abrir la cesta y remover la granola cada 3-4 minutos para evitar que se queme.",
+      "Retira cuando esté dorada y déjala enfriar completamente para que adquiera una textura súper crujiente."
+    ],
+    "tips": "Guárdala en un tarro de cristal hermético una vez fría para que conserve su frescura por más de dos semanas."
+  },
+  {
+    "id": 5,
+    "title": "French Toast Ligera de Canela",
+    "category": "Desayunos y Brunch",
+    "prepTime": "5 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 190,
+    "difficulty": "Fácil",
+    "description": "La versión saludable del clásico desayuno, crujiente por fuera y jugosa por dentro con muy poco aceite.",
+    "ingredients": [
+      "4 rebanadas de pan integral de molde grueso (preferiblemente del día anterior)",
+      "1 huevo entero",
+      "2 claras de huevo",
+      "1/4 taza de leche de almendras sin azúcar",
+      "1 cucharadita de canela en polvo",
+      "1/2 cucharadita de esencia de vainilla",
+      "Edulcorante líquido o stevia al gusto (opcional)"
+    ],
+    "steps": [
+      "En un plato hondo, bate el huevo, las claras, la leche de almendras, la canela, la vainilla y el edulcorante.",
+      "Sumerge cada rebanada de pan en la mezcla durante 15-20 segundos por lado para que absorban bien el líquido sin deshacerse.",
+      "Precalienta la freidora de aire a 180°C y coloca un trozo de papel para hornear en la cesta.",
+      "Coloca las rebanadas en una sola capa en la cesta.",
+      "Cocina a 180°C durante 4 minutos, dales la vuelta con cuidado y cocina otros 3-4 minutos más hasta que estén doradas y firmes.",
+      "Sirve con fruta fresca por encima (como fresas o plátano)."
+    ],
+    "tips": "Rocía con un hilo de miel pura o sirope de arce sin azúcar para darle un toque dulce espectacular."
+  },
+  {
+    "id": 6,
+    "title": "Tortilla de Claras con Champiñones y Tomates Secos",
+    "category": "Desayunos y Brunch",
+    "prepTime": "5 min",
+    "cookTime": "10 min",
+    "servings": 1,
+    "calories": 130,
+    "difficulty": "Fácil",
+    "description": "Una tortilla súper ligera y sabrosa, alta en proteínas y baja en grasa, perfecta para deportistas.",
+    "ingredients": [
+      "4 claras de huevo (o 150ml de claras líquidas)",
+      "4 champiñones medianos laminados",
+      "3 tomates secos hidratados en agua y picados",
+      "1 puñado de hojas de albahaca fresca picada",
+      "Sal y pimienta al gusto",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Prepara un molde pequeño redondo apto para horno que quepa en tu freidora, píntalo con una gota de aceite o engrásalo en espray.",
+      "Coloca los champiñones y los tomates secos en el molde.",
+      "Bate ligeramente las claras de huevo con sal y pimienta hasta que hagan espuma y viértelas en el molde sobre los champiñones.",
+      "Decora con la albahaca fresca.",
+      "Cocina en la freidora de aire a 170°C durante 10 minutos o hasta que veas que la tortilla se infla y cuaja completamente.",
+      "Desmolda con cuidado pasando un cuchillo por los bordes y sirve."
+    ],
+    "tips": "Puedes espolvorear una cucharadita de levadura nutricional por encima para aportarle un sutil sabor a queso sin añadir calorías."
+  },
+  {
+    "id": 7,
+    "title": "Pan de Plátano Saludable",
+    "category": "Desayunos y Brunch",
+    "prepTime": "10 min",
+    "cookTime": "25 min",
+    "servings": 8,
+    "calories": 175,
+    "difficulty": "Medio",
+    "description": "Un clásico bizcocho de plátano húmedo e irresistible elaborado con ingredientes limpios y horneado de forma exprés.",
+    "ingredients": [
+      "3 plátanos muy maduros",
+      "1.5 tazas de harina de espelta integral o de avena",
+      "2 huevos medianos",
+      "3 cucharadas de aceite de coco derretido",
+      "1 cucharadita de bicarbonato de sodio",
+      "1 cucharadita de extracto de vainilla",
+      "1 puñado de nueces picadas",
+      "Una pizca de sal"
+    ],
+    "steps": [
+      "En un bol grande, machaca los plátanos hasta hacerlos puré líquido.",
+      "Añade los huevos, el aceite de coco y la vainilla. Bate bien con unas varillas.",
+      "Incorpora la harina, el bicarbonato y la pizca de sal. Mezcla con suavidad hasta integrar.",
+      "Agrega las nueces picadas a la masa.",
+      "Engrasa un molde alargado (apto para freidora de aire) y vierte la mezcla.",
+      "Introduce en la freidora de aire previamente precalentada a 160°C y hornea durante 25 minutos. Comprueba con un palillo en el centro si sale limpio.",
+      "Deja enfriar en una rejilla antes de cortarlo en porciones."
+    ],
+    "tips": "Si el pan se dora demasiado rápido por arriba pero sigue crudo por dentro, tápalo con un papel de aluminio suelto los últimos 8 minutos."
+  },
+  {
+    "id": 8,
+    "title": "Rollitos de Canela Integrales Express",
+    "category": "Desayunos y Brunch",
+    "prepTime": "15 min",
+    "cookTime": "10 min",
+    "servings": 4,
+    "calories": 190,
+    "difficulty": "Medio",
+    "description": "Disfruta de unos rollitos de canela deliciosos sin tiempos de levado largos, con una masa rápida a base de yogur.",
+    "ingredients": [
+      "1 taza de harina de trigo integral",
+      "1 cucharadita de levadura química (polvo para hornear)",
+      "1/2 taza de yogur griego natural desnatado",
+      "1 cucharada de sirope de agave",
+      "1 cucharada de margarina ligera o aceite de coco derretido",
+      "2 cucharadas de eritritol o panela",
+      "1 cucharada de canela en polvo"
+    ],
+    "steps": [
+      "En un bol, mezcla la harina y la levadura. Añade el yogur griego y el sirope. Amasa con las manos hasta formar una bola que no se pegue.",
+      "Estira la masa con un rodillo sobre papel de horno formando un rectángulo fino.",
+      "Pinta la superficie de la masa con el aceite de coco derretido.",
+      "Mezcla el eritritol con la canela en un bol pequeño y espolvoréalo cubriendo toda la masa.",
+      "Enrolla la masa firmemente sobre sí misma por el lado largo. Corta el cilindro en 4 partes iguales.",
+      "Coloca los rollos en un recipiente apto para horno forrado con papel.",
+      "Hornea en la freidora a 170°C durante 10 minutos, hasta que estén dorados y esponjosos."
+    ],
+    "tips": "Para la decoración, puedes mezclar una cucharada de queso crema light con un poquito de leche y edulcorante para hacer un glaseado fit."
+  },
+  {
+    "id": 9,
+    "title": "Shakshuka Individual con Huevo Campero",
+    "category": "Desayunos y Brunch",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "servings": 1,
+    "calories": 210,
+    "difficulty": "Fácil",
+    "description": "Una versión individual del clásico plato de Oriente Medio. Tomates especiados, pimientos y un huevo fundente.",
+    "ingredients": [
+      "1 huevo campero grande",
+      "1/2 taza de tomate troceado en conserva",
+      "1/4 de pimiento rojo picado",
+      "1/4 de cebolla roja picada",
+      "1 diente de ajo picadito",
+      "1/2 cucharadita de comino y pimentón dulce",
+      "Perejil o cilantro fresco para decorar",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En una sartén pequeña convencional o directamente en un recipiente apto para freidora de aire, pulveriza un poco de aceite de oliva.",
+      "Saltea el ajo, la cebolla y el pimiento a 180°C durante 4 minutos en la freidora.",
+      "Agrega el tomate troceado, el comino, el pimentón, sal y pimienta. Mezcla bien y cocina a 180°C otros 3 minutos.",
+      "Con una cuchara, haz un hueco en el centro de la mezcla de tomate.",
+      "Casca el huevo con cuidado en el hueco central.",
+      "Introduce de nuevo el recipiente en la freidora y cocina a 160°C durante 5 minutos, hasta que la clara esté blanca pero la yema blanda.",
+      "Decora con perejil o cilantro fresco picado y sirve caliente."
+    ],
+    "tips": "Disfruta de este plato con una rebanada de pan pita integral tostado para mojar la yema."
+  },
+  {
+    "id": 10,
+    "title": "Donuts Fit de Calabaza y Canela",
+    "category": "Desayunos y Brunch",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 6,
+    "calories": 110,
+    "difficulty": "Fácil",
+    "description": "Donuts súper esponjosos ricos en vitamina A gracias a la calabaza. Perfectamente especiados y bajos en grasa.",
+    "ingredients": [
+      "1/2 taza de puré de calabaza asada",
+      "1/2 taza de harina de avena integral",
+      "1 huevo grande",
+      "2 cucharadas de eritritol o miel",
+      "1 cucharadita de polvo para hornear",
+      "1 cucharadita de especias de tarta de calabaza (canela, jengibre, clavo, nuez moscada)",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un bol mediano, mezcla el puré de calabaza, el huevo y el endulzante de tu elección.",
+      "Añade la harina de avena, el polvo para hornear y las especias. Mezcla hasta integrar completamente.",
+      "Engrasa unos moldes de silicona para donuts y reparte la masa uniformemente.",
+      "Precalienta la freidora de aire a 160°C.",
+      "Introduce los moldes en la cesta y cocina a 160°C durante 8 minutos.",
+      "Retira, deja templar 5 minutos y desmolda sobre una rejilla para que no acumulen humedad."
+    ],
+    "tips": "Pásalos por una mezcla de eritritol y canela en polvo mientras estén calientes para un acabado crujiente tradicional."
+  },
+  {
+    "id": 11,
+    "title": "Arepas de Maíz Rellenas de Pollo Desmechado",
+    "category": "Desayunos y Brunch",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "servings": 2,
+    "calories": 260,
+    "difficulty": "Medio",
+    "description": "Arepas crujientes por fuera y tiernas por dentro, rellenas de jugoso pollo desmechado con aguacate y yogur.",
+    "ingredients": [
+      "1 taza de harina de maíz precocida blanca",
+      "1 taza de agua tibia",
+      "Una pizca de sal",
+      "80g de pechuga de pollo cocida y desmechada",
+      "1/4 de aguacate maduro machacado",
+      "1 cucharada de yogur griego natural (como sustituto de la mayonesa)",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un bol, mezcla el agua tibia con la pizca de sal. Añade la harina de maíz poco a poco mientras mezclas con las manos.",
+      "Amasa durante 3 minutos hasta obtener una masa suave y moldeable. Forma dos bolas y aplánalas para darles forma de disco grueso.",
+      "Pulveriza las arepas con aceite de oliva por ambos lados.",
+      "Cocina en la freidora de aire a 200°C durante 15 minutos, dándoles la vuelta a la mitad del tiempo para que queden bien tostadas.",
+      "Mientras tanto, mezcla en un bol el pollo desmechado con el aguacate machacado, el yogur griego, sal y pimienta.",
+      "Abre las arepas calientes con un cuchillo y rellénalas con el preparado de pollo."
+    ],
+    "tips": "El secreto para que la masa quede perfecta es dejarla reposar 5 minutos tapada antes de dar forma a las arepas."
+  },
+  {
+    "id": 12,
+    "title": "Sándwich Crujiente de Pavo, Manzana y Brie",
+    "category": "Desayunos y Brunch",
+    "prepTime": "5 min",
+    "cookTime": "6 min",
+    "servings": 1,
+    "calories": 280,
+    "difficulty": "Fácil",
+    "description": "Un sándwich tostado gourmet con un contraste de texturas espectacular entre la manzana crujiente y el queso fundido.",
+    "ingredients": [
+      "2 rebanadas de pan integral de semillas de masa madre",
+      "3 lonchas finas de pechuga de pavo de alta calidad",
+      "1/2 manzana verde cortada en láminas muy finas",
+      "30g de queso brie cortado en lonchas",
+      "1/2 cucharadita de mostaza de Dijon antigua"
+    ],
+    "steps": [
+      "Unta una de las rebanadas de pan con la mostaza de Dijon.",
+      "Coloca encima las láminas de manzana verde, luego las lonchas de pavo y finalmente el queso brie.",
+      "Cierra el sándwich con la otra rebanada de pan.",
+      "Introduce el sándwich en la freidora de aire (puedes ponerle un palillo para que no se desarme con el aire).",
+      "Tuesta a 180°C durante 3 minutos por lado, hasta que el pan esté crujiente y el queso brie comience a fundirse por los bordes.",
+      "Sírvelo cortado en diagonal de inmediato."
+    ],
+    "tips": "Si prefieres un sándwich aún más crujiente, puedes pincelar muy ligeramente la parte exterior del pan con unas gotas de aceite de oliva antes de tostar."
+  },
+  {
+    "id": 13,
+    "title": "Bastones de Calabacín con Costra de Parmesano",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "servings": 4,
+    "calories": 95,
+    "difficulty": "Fácil",
+    "description": "Una alternativa saludable, baja en carbohidratos y súper crujiente a las tradicionales patatas fritas.",
+    "ingredients": [
+      "2 calabacines medianos",
+      "1 huevo",
+      "1/2 taza de pan rallado integral o panko",
+      "1/4 taza de queso parmesano rallado fino",
+      "1 cucharadita de ajo en polvo y orégano",
+      "Sal y pimienta negra al gusto",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Corta los calabacines por la mitad a lo ancho y luego en bastones medianos de igual tamaño.",
+      "En un bol, bate el huevo con una pizca de sal y pimienta.",
+      "En otro plato plano, mezcla el pan rallado, el queso parmesano, el ajo en polvo y el orégano.",
+      "Pasa cada bastón de calabacín por el huevo batido y después por la mezcla de pan rallado, presionando para que se adhiera bien.",
+      "Coloca los bastones en la cesta de la freidora en una sola capa sin amontonarlos.",
+      "Pulveriza con un poco de aceite de oliva en espray.",
+      "Cocina a 200°C durante 10 minutos, dándoles la vuelta a la mitad del tiempo hasta que estén dorados y crujientes."
+    ],
+    "tips": "Sírvelos con una salsa de tomate casera o salsa de yogur con hierbabuena para un dip perfecto."
+  },
+  {
+    "id": 14,
+    "title": "Falafel de Garbanzos y Espinacas con Salsa Tzatziki",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "15 min",
+    "cookTime": "12 min",
+    "servings": 4,
+    "calories": 160,
+    "difficulty": "Medio",
+    "description": "Croquetas de garbanzo de inspiración árabe enriquecidas con espinacas frescas. Crujientes por fuera y tiernas por dentro sin necesidad de freír.",
+    "ingredients": [
+      "400g de garbanzos cocidos y bien escurridos",
+      "1 taza de hojas de espinacas frescas",
+      "1/2 cebolla picada",
+      "2 dientes de ajo",
+      "1/2 taza de cilantro y perejil fresco",
+      "1 cucharadita de comino molido",
+      "2 cucharadas de harina de garbanzo",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Introduce los garbanzos, las espinacas, la cebolla, el ajo, las hierbas frescas y el comino en un procesador de alimentos. Tritura hasta conseguir una pasta densa con textura, no un puré.",
+      "Pasa la mezcla a un bol y añade la harina de garbanzo para dar firmeza. Rectifica de sal y pimienta.",
+      "Forma pequeñas bolas compactas con las manos y aplánalas ligeramente.",
+      "Coloca los falafels en la cesta de la freidora previamente forrada con papel de horno.",
+      "Pulveriza con aceite de oliva.",
+      "Cocina a 190°C durante 12 minutos, dándoles la vuelta a mitad del tiempo hasta que estén firmes y dorados por ambos lados."
+    ],
+    "tips": "Para hacer la salsa tzatziki exprés: mezcla yogur griego desnatado, pepino rallado escurrido, ajo picado, menta, limón y sal."
+  },
+  {
+    "id": 15,
+    "title": "Chips de Kale al Parmesano y Limón",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "5 min",
+    "cookTime": "6 min",
+    "servings": 2,
+    "calories": 75,
+    "difficulty": "Fácil",
+    "description": "Un snack súper crujiente y adictivo, lleno de antioxidantes y con un toque salado de parmesano.",
+    "ingredients": [
+      "1 manojo grande de col kale (rizada)",
+      "1 cucharada de aceite de oliva virgen extra",
+      "2 cucharadas de queso parmesano rallado extrafino",
+      "1 cucharadita de ralladura de limón",
+      "Una pizca de sal marina fina"
+    ],
+    "steps": [
+      "Lava muy bien las hojas de kale y sécalas minuciosamente con papel de cocina o un centrifugador de ensaladas (el secado es clave para que queden crujientes).",
+      "Retira los tallos centrales duros y corta las hojas en trozos del tamaño de un bocado.",
+      "En un bol grande, pon el kale y añade el aceite de oliva. Masajea las hojas con las manos durante 1 minuto para ablandarlas y cubrirlas por completo.",
+      "Agrega la ralladura de limón, el parmesano y la pizca de sal. Mezcla bien.",
+      "Coloca el kale en la cesta de la freidora sin amontonar demasiado (cocina en tandas si es necesario).",
+      "Cocina a 140°C durante 5-6 minutos. Abre la cesta a los 3 minutos y remueve para redistribuir el kale.",
+      "Saca los chips cuando estén crujientes y rígidos al tacto."
+    ],
+    "tips": "No uses temperaturas superiores a 150°C ya que el kale se quema con mucha facilidad y adquiere un sabor amargo."
+  },
+  {
+    "id": 16,
+    "title": "Edamame Crujiente con Chile y Lima",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "5 min",
+    "cookTime": "10 min",
+    "servings": 2,
+    "calories": 110,
+    "difficulty": "Fácil",
+    "description": "Vainas de soja tiernas cocinadas hasta quedar tostadas y sazonadas con un toque picante y cítrico irresistible.",
+    "ingredients": [
+      "250g de edamame congelado (en vaina)",
+      "1 cucharadita de aceite de sésamo",
+      "1/2 cucharadita de copos de chile seco (ají triturado)",
+      "Zumo y ralladura de 1/2 lima",
+      "Sal marina gruesa al gusto"
+    ],
+    "steps": [
+      "Descongela las vainas de edamame bajo el grifo de agua templada y sécalas muy bien con un paño limpio.",
+      "En un bol, mezcla el edamame con el aceite de sésamo, los copos de chile y la sal.",
+      "Introduce el edamame en la cesta de la freidora de aire.",
+      "Cocina a 200°C durante 8-10 minutos, agitando la cesta cada 3 minutos para que se doren uniformemente.",
+      "Retira de la freidora y añade el zumo y la ralladura de lima inmediatamente antes de servir."
+    ],
+    "tips": "Este snack se come presionando la vaina con los dientes para extraer las habas tiernas del interior, las vainas no se tragan."
+  },
+  {
+    "id": 17,
+    "title": "Rollitos de Primavera de Verduras y Tofu",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "15 min",
+    "cookTime": "12 min",
+    "servings": 4,
+    "calories": 140,
+    "difficulty": "Medio",
+    "description": "Una versión ligera del clásico rollito asiático, crujiente, relleno de hortalizas frescas y tofu marinado.",
+    "ingredients": [
+      "8 láminas de papel de arroz o masa para rollitos",
+      "1 taza de col china cortada en juliana fina",
+      "1 zanahoria mediana rallada en tiras",
+      "100g de tofu firme cortado en cubitos diminutos",
+      "2 cucharadas de salsa de soja baja en sodio",
+      "1 cucharadita de jengibre fresco rallado",
+      "Aceite de sésamo en espray"
+    ],
+    "steps": [
+      "En una sartén, saltea el tofu, la col y la zanahoria con el jengibre y la salsa de soja durante 4 minutos hasta que la verdura ablande un poco pero conserve textura. Deja enfriar.",
+      "Humedece una lámina de papel de arroz en agua tibia por 5 segundos hasta que esté flexible.",
+      "Coloca una cucharada del relleno en el extremo de la lámina, dobla los bordes hacia dentro y enrolla firmemente.",
+      "Repite el proceso con el resto de los rollitos.",
+      "Engrasa ligeramente los rollitos por fuera con el espray de aceite.",
+      "Colócalos en la cesta de la freidora cuidando que no se toquen.",
+      "Cocina a 190°C durante 12 minutos, dándoles la vuelta a la mitad del tiempo para conseguir un crujiente dorado uniforme."
+    ],
+    "tips": "Sirve con salsa agridulce casera hecha con vinagre de arroz, agua, eritritol y una pizca de pasta de tomate."
+  },
+  {
+    "id": 18,
+    "title": "Croquetas Saludables de Pavo y Avena",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "20 min",
+    "cookTime": "10 min",
+    "servings": 4,
+    "calories": 170,
+    "difficulty": "Medio",
+    "description": "Croquetas cremosas por dentro y crujientes por fuera usando una masa ligera con bechamel de avena y leche desnatada.",
+    "ingredients": [
+      "150g de pechuga de pavo cocida y picada fina",
+      "1/2 cebolla picada muy fina",
+      "3 cucharadas colmadas de harina de avena integral",
+      "1.5 tazas de leche desnatada o bebida vegetal sin azúcar",
+      "1 huevo batido (para el rebozado)",
+      "1/2 taza de salvado de avena o pan rallado integral",
+      "Sal, pimienta negra y nuez moscada",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En una sartén, rehoga la cebolla con una cucharadita de aceite de oliva hasta que esté transparente.",
+      "Añade la harina de avena y tuéstala durante 1 minuto sin dejar de remover.",
+      "Ve vertiendo la leche poco a poco mientras bates con unas varillas para evitar grumos, hasta obtener una bechamel espesa.",
+      "Añade el pavo picado, sal, pimienta y nuez moscada al gusto. Cocina 3 minutos más hasta que la masa se desprenda de la sartén. Deja enfriar en la nevera durante 2 horas.",
+      "Forma las croquetas con las manos húmedas.",
+      "Pásalas por el huevo batido y luego por el salvado de avena para rebozarlas.",
+      "Coloca las croquetas en la freidora, pulverízalas con aceite en espray y cocina a 200°C durante 10 minutos."
+    ],
+    "tips": "Para que no se abran en la freidora, es fundamental que la masa esté muy fría antes de darles forma y rebozarlas."
+  },
+  {
+    "id": 19,
+    "title": "Champiñones Rellenos de Ricotta y Nueces",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "servings": 3,
+    "calories": 125,
+    "difficulty": "Fácil",
+    "description": "Sombreros de champiñón rellenos de una mezcla cremosa y crujiente ideal para sorprender a tus invitados.",
+    "ingredients": [
+      "12 champiñones grandes enteros",
+      "100g de queso ricotta o requesón light",
+      "30g de nueces peladas picadas",
+      "1 diente de ajo picado muy fino",
+      "Perejil fresco picado",
+      "Sal y pimienta al gusto",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Lava los champiñones, retira el tallo con cuidado de no romper el sombrero. Pica los tallos finamente.",
+      "En una sartén pequeña, cocina los tallos picados y el ajo con una pizca de sal durante 3 minutos.",
+      "En un bol, mezcla el queso ricotta, las nueces picadas, los tallos cocinados, el perejil, sal y pimienta.",
+      "Rellena generosamente los sombreros de champiñón con la mezcla.",
+      "Coloca los champiñones rellenos en la freidora de aire.",
+      "Pulveriza ligeramente con aceite de oliva.",
+      "Cocina a 180°C durante 10-12 minutos, hasta que los champiñones estén tiernos y el relleno esté ligeramente dorado por encima."
+    ],
+    "tips": "Añade un trocito pequeño de queso mozzarella light sobre el relleno el último minuto para un toque gratinado extra."
+  },
+  {
+    "id": 20,
+    "title": "Chips de Manzana con Canela",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "10 min",
+    "cookTime": "20 min",
+    "servings": 2,
+    "calories": 80,
+    "difficulty": "Fácil",
+    "description": "Un snack dulce, 100% natural y crujiente, perfecto para picar entre horas sin remordimientos.",
+    "ingredients": [
+      "2 manzanas medianas (Fuji o Royal Gala)",
+      "1 cucharadita de canela en polvo"
+    ],
+    "steps": [
+      "Lava las manzanas y retira el corazón con un descorazonador si dispones de uno.",
+      "Con una mandolina o un cuchillo muy afilado, corta la manzana en rodajas extremadamente finas (1-2 mm de grosor).",
+      "Espolvorea las rodajas de manzana con la canela en polvo de manera uniforme.",
+      "Coloca las rodajas en la freidora de aire intentando que no se superpongan en exceso (puedes usar una rejilla separadora).",
+      "Cocina a 130°C durante 20 minutos. Da la vuelta a las manzanas cada 5 minutos.",
+      "Retira de la cesta cuando las rodajas estén ligeramente secas; se volverán completamente crujientes al enfriarse."
+    ],
+    "tips": "El secado lento a temperatura baja es crucial. Si subes la temperatura, la manzana se ablandará en lugar de quedar crujiente."
+  },
+  {
+    "id": 21,
+    "title": "Tequeños de Queso con Masa Integral",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "15 min",
+    "cookTime": "8 min",
+    "servings": 4,
+    "calories": 195,
+    "difficulty": "Medio",
+    "description": "Palitos de queso envueltos en una masa crujiente integral casera. Deliciosos para mojar en tu salsa favorita.",
+    "ingredients": [
+      "1 taza de harina de trigo integral",
+      "2 cucharadas de aceite de oliva",
+      "1/4 taza de agua templada",
+      "Una pizca de sal",
+      "120g de queso blanco bajo en grasa (firme, tipo paisa o mozzarella en bloque)",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un bol, mezcla la harina, la sal, el aceite de oliva y el agua templada. Amasa hasta obtener una textura suave y elástica. Deja reposar la masa 10 minutos.",
+      "Corta el queso en 8 bastones gruesos.",
+      "Estira la masa con un rodillo hasta dejarla muy fina y córtala en tiras largas de 2 cm de ancho.",
+      "Envuelve cada bastón de queso con las tiras de masa de manera solapada, sellando bien los extremos para evitar fugas de queso.",
+      "Coloca los tequeños en la cesta de la freidora.",
+      "Pulveriza con aceite de oliva.",
+      "Cocina a 190°C durante 7-8 minutos, hasta que la masa esté dorada y el queso fundido."
+    ],
+    "tips": "Asegúrate de presionar bien las uniones de la masa al envolver para que el queso caliente no se escape durante la cocción."
+  },
+  {
+    "id": 22,
+    "title": "Bites de Brócoli y Cheddar Ligero",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "servings": 3,
+    "calories": 115,
+    "difficulty": "Fácil",
+    "description": "Bocaditos crujientes ideales para introducir verduras en la dieta de los más pequeños de forma divertida.",
+    "ingredients": [
+      "2 tazas de ramilletes de brócoli",
+      "1 huevo grande",
+      "1/2 taza de queso cheddar bajo en grasa rallado",
+      "1/4 taza de pan rallado integral o harina de almendras",
+      "1/2 cucharadita de ajo en polvo",
+      "Sal y pimienta al gusto"
+    ],
+    "steps": [
+      "Cocina el brócoli al vapor durante 3 minutos para que se ablande ligeramente. Pícalo finamente con un cuchillo.",
+      "En un bol, mezcla el brócoli picado, el huevo batido, el queso cheddar rallado, el pan rallado, el ajo en polvo, la sal y la pimienta.",
+      "Forma pequeñas bolas o croquetas compactas del tamaño de una nuez presionando con las manos.",
+      "Coloca los bites en la cesta de la freidora sobre papel de hornear.",
+      "Cocina a 180°C durante 10 minutos, dándoles la vuelta con suavidad a la mitad del tiempo hasta que estén firmes y dorados."
+    ],
+    "tips": "Acompáñalos con una salsa de mostaza dulce saludable (mezclando mostaza de Dijon antigua, yogur natural y unas gotas de miel)."
+  },
+  {
+    "id": 23,
+    "title": "Tempura de Langostinos Saludable",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 140,
+    "difficulty": "Medio",
+    "description": "Langostinos crujientes rebozados en una mezcla ligera, imitando la clásica tempura japonesa con una fracción de aceite.",
+    "ingredients": [
+      "12 langostinos grandes, pelados (dejando la cola)",
+      "1 clara de huevo",
+      "1/4 taza de harina de arroz o maicena",
+      "1/2 taza de panko o copos de maíz sin azúcar triturados",
+      "Aceite de oliva en espray",
+      "Sal y pimienta al gusto"
+    ],
+    "steps": [
+      "Seca muy bien los langostinos con papel absorbente. Sazónalos con una pizca de sal y pimienta.",
+      "Pasa cada langostino por la harina de arroz, luego por la clara de huevo ligeramente batida, y finalmente por el panko presionando para cubrir bien.",
+      "Precalienta la freidora de aire a 190°C.",
+      "Coloca los langostinos en la cesta cuidando de dejar espacio entre ellos.",
+      "Pulveriza los langostinos con el espray de aceite de oliva.",
+      "Cocina a 190°C durante 6-8 minutos, dándoles la vuelta a la mitad del proceso para lograr un crujiente perfecto."
+    ],
+    "tips": "Sírvelos acompañados de salsa de soja baja en sodio y un chorrito de lima."
+  },
+  {
+    "id": 24,
+    "title": "Garbanzos Crujientes Especiados",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "5 min",
+    "cookTime": "15 min",
+    "servings": 4,
+    "calories": 110,
+    "difficulty": "Fácil",
+    "description": "Un snack salado, crujiente, saciante y lleno de proteínas vegetales. Perfecto para sustituir a las patatas de bolsa.",
+    "ingredients": [
+      "400g de garbanzos cocidos de bote",
+      "1 cucharada de aceite de oliva virgen extra",
+      "1 cucharadita de pimentón de la Vera (dulce o picante)",
+      "1/2 cucharadita de comino en polvo y curry",
+      "1/2 cucharadita de ajo en polvo",
+      "Sal marina fina al gusto"
+    ],
+    "steps": [
+      "Enjuaga muy bien los garbanzos y sécalos a conciencia colocándolos entre dos hojas de papel de cocina. Retira las pieles sueltas que se desprendan.",
+      "En un bol grande, mezcla los garbanzos con el aceite de oliva, asegurándote de que todos queden impregnados.",
+      "Vierte los garbanzos en la cesta de la freidora de aire.",
+      "Cocina a 190°C durante 15 minutos, agitando la cesta con energía cada 4-5 minutos para que se tuesten uniformemente.",
+      "Sácalos de la freidora, añádeles inmediatamente las especias y la sal en el bol y mezcla bien para que se adhieran con el calor restante."
+    ],
+    "tips": "No añadas las especias antes de cocinar; se quemarían en la freidora y amargarían los garbanzos."
+  },
+  {
+    "id": 25,
+    "title": "Mini Quiches de Espinacas y Puerro",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "servings": 4,
+    "calories": 90,
+    "difficulty": "Fácil",
+    "description": "Deliciosas tartaletas individuales saladas, sin base de masa para ahorrar carbohidratos y calorías de forma inteligente.",
+    "ingredients": [
+      "2 huevos grandes",
+      "3 cucharadas de leche desnatada o nata ligera de cocina",
+      "1/2 taza de espinacas cocidas picadas y bien escurridas",
+      "1/4 taza de puerro picado fino y previamente salteado",
+      "20g de queso de cabra desmigado",
+      "Sal, pimienta y nuez moscada al gusto"
+    ],
+    "steps": [
+      "En un bol, bate los huevos junto con la leche, sal, pimienta y nuez moscada.",
+      "Añade las espinacas picadas, el puerro salteado y mezcla bien.",
+      "Reparte la mezcla en 4 moldes pequeños de silicona aptos para magdalenas.",
+      "Corona cada molde con un trocito de queso de cabra desmigado.",
+      "Coloca los moldes en la cesta de la freidora.",
+      "Cocina a 160°C durante 8-10 minutos, hasta que las quiches se hinchen y estén ligeramente doradas por encima."
+    ],
+    "tips": "Usa moldes individuales de silicona; facilitan enormemente el desmoldado sin necesidad de añadir grasas adicionales."
+  },
+  {
+    "id": 26,
+    "title": "Nachos de Batata Crujientes con Guacamole",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 160,
+    "difficulty": "Fácil",
+    "description": "Triángulos de batata asados hasta quedar crujientes, servidos con un guacamole fresco y casero.",
+    "ingredients": [
+      "1 batata mediana pelada",
+      "1 cucharada de aceite de oliva",
+      "1 cucharadita de pimentón dulce y orégano",
+      "Sal y pimienta",
+      "1 aguacate maduro machacado, zumo de lima, cilantro y tomate picado (para el guacamole)"
+    ],
+    "steps": [
+      "Corta la batata por la mitad y luego en rodajas finas de unos 3-4 mm. Corta estas rodajas en triángulos para simular totopos.",
+      "Pon los triángulos de batata a remojo en agua fría durante 15 minutos para retirar el almidón. Sécalos muy bien.",
+      "En un bol, mezcla las batatas con el aceite de oliva, el pimentón, el orégano, sal y pimienta.",
+      "Distribúyelas en la freidora en una capa fina (cocina en dos tandas si es necesario).",
+      "Cocina a 180°C durante 12 minutos, agitando la cesta cada 4 minutos.",
+      "Sirve los nachos calientes acompañados del guacamole fresco preparado mezclando el aguacate, lima, cilantro y tomate."
+    ],
+    "tips": "El remojo en agua y el posterior secado concienzudo son claves para que la batata no quede blanda al asarse."
+  },
+  {
+    "id": 27,
+    "title": "Crujientes de Queso de Cabra y Miel",
+    "category": "Aperitivos y Snacks",
+    "prepTime": "10 min",
+    "cookTime": "6 min",
+    "servings": 4,
+    "calories": 145,
+    "difficulty": "Fácil",
+    "description": "Bocados templados de queso de cabra envueltos en pasta filo crujiente con un contraste dulce de miel y tomillo.",
+    "ingredients": [
+      "1 rulo pequeño de queso de cabra (aprox. 100g)",
+      "4 hojas de pasta filo",
+      "1 cucharadita de miel de caña o de flores",
+      "Unas ramitas de tomillo fresco",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Corta el rulo de queso de cabra en 4 rodajas gruesas.",
+      "Extiende una hoja de pasta filo y dóblala por la mitad a lo largo. Coloca una rodaja de queso en un extremo.",
+      "Añade unas gotas de miel y unas hojas de tomillo sobre el queso.",
+      "Envuelve el queso con la pasta filo formando un paquete cuadrado o rectangular compacto, sellando con un poco de agua en los bordes.",
+      "Pulveriza los paquetes con aceite de oliva.",
+      "Colócalos en la freidora de aire y cocina a 190°C durante 6 minutos, dándoles la vuelta a la mitad del tiempo hasta que la pasta filo esté crujiente y dorada."
+    ],
+    "tips": "Sirve de inmediato mientras el queso interior esté fundente y la pasta exterior súper crujiente."
+  },
+  {
+    "id": 28,
+    "title": "Pechugas de Pollo Rellenas de Caprese",
+    "category": "Aves y Carnes",
+    "prepTime": "10 min",
+    "cookTime": "18 min",
+    "servings": 2,
+    "calories": 260,
+    "difficulty": "Medio",
+    "description": "Una pechuga de pollo aburrida transformada en un manjar jugoso relleno de mozzarella fresca, tomate y pesto.",
+    "ingredients": [
+      "2 pechugas de pollo medianas enteras",
+      "1 tomate mediano cortado en rodajas",
+      "50g de queso mozzarella fresco light en rodajas",
+      "2 cucharaditas de salsa pesto casera",
+      "Sal, pimienta negra y ajo en polvo al gusto",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Limpia las pechugas de pollo y hazles un corte lateral profundo en forma de libro o bolsillo, con cuidado de no traspasar la carne.",
+      "Salpimienta las pechugas por dentro y por fuera y añade un toque de ajo en polvo.",
+      "Unta el interior del bolsillo de cada pechuga con una cucharadita de salsa pesto.",
+      "Introduce 2 rodajas de tomate y 2 de mozzarella dentro del bolsillo de cada pechuga.",
+      "Cierra las aberturas asegurándolas con unos palillos de madera para que no se salga el queso al fundirse.",
+      "Pulveriza con aceite de oliva en espray e introduce en la cesta de la freidora.",
+      "Cocina a 180°C durante 15-18 minutos (da la vuelta a los 10 minutos) hasta que el pollo esté bien hecho por dentro y dorado por fuera."
+    ],
+    "tips": "Retira los palillos de madera antes de emplatar. Acompaña con una ensalada verde de rúcula."
+  },
+  {
+    "id": 29,
+    "title": "Brochetas de Pollo Yakitori con Sésamo",
+    "category": "Aves y Carnes",
+    "prepTime": "15 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 220,
+    "difficulty": "Fácil",
+    "description": "Brochetas de pollo marinadas al estilo japonés, tiernas y llenas de sabor asiático con un toque de semillas de sésamo.",
+    "ingredients": [
+      "300g de contramuslos de pollo deshuesados y sin piel cortados en cubos",
+      "1 puerro grande (solo la parte blanca) cortado en trozos de 2 cm",
+      "3 cucharadas de salsa de soja baja en sodio",
+      "1 cucharada de mirin o vinagre de arroz",
+      "1 cucharadita de eritritol o miel",
+      "1 cucharadita de jengibre fresco rallado",
+      "Semillas de sésamo para decorar"
+    ],
+    "steps": [
+      "En un bol, mezcla la salsa de soja, el mirin, el eritritol y el jengibre rallado.",
+      "Añade los trozos de pollo al bol y déjalos marinar en la nevera durante 20 minutos.",
+      "Ensarta alternativamente trozos de pollo y trozos de puerro en brochetas de madera (córtalas si no caben en tu freidora).",
+      "Coloca las brochetas en la freidora de aire.",
+      "Cocina a 190°C durante 12 minutos, pintándolas con el marinado sobrante a los 6 minutos al darles la vuelta.",
+      "Espolvorea con semillas de sésamo tostadas antes de servir."
+    ],
+    "tips": "Remoja las brochetas de madera en agua durante 10 minutos antes de usarlas para evitar que se quemen en la freidora."
+  },
+  {
+    "id": 30,
+    "title": "Albóndigas de Pavo al Limón y Hierbas",
+    "category": "Aves y Carnes",
+    "prepTime": "15 min",
+    "cookTime": "12 min",
+    "servings": 3,
+    "calories": 190,
+    "difficulty": "Fácil",
+    "description": "Albóndigas ligeras de pavo con un sabor fresco a limón, perejil y menta. Muy jugosas gracias a la freidora de aire.",
+    "ingredients": [
+      "400g de carne picada de pechuga de pavo",
+      "1 huevo",
+      "2 cucharadas de copos de avena triturados",
+      "Zumo y ralladura de 1 limón mediano",
+      "2 cucharadas de menta y perejil fresco picados",
+      "1 diente de ajo picadito",
+      "Sal y pimienta negra al gusto",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un bol grande, mezcla la carne de pavo, el huevo, la avena, la ralladura de limón, las hierbas frescas picadas, el ajo, la sal y la pimienta.",
+      "Amasa bien con las manos hasta obtener una mezcla homogénea.",
+      "Forma albóndigas del tamaño de una pelota de golf.",
+      "Colócalas en la cesta de la freidora y rocíalas con aceite en espray.",
+      "Cocina a 180°C durante 12 minutos, agitando la cesta a la mitad del tiempo para que se doren por todos lados.",
+      "Sírvelas con un chorrito de zumo de limón fresco por encima."
+    ],
+    "tips": "Para un sabor más intenso, añade media cucharadita de comino en polvo a la masa de las albóndigas."
+  },
+  {
+    "id": 31,
+    "title": "Alitas de Pollo Crujientes al Limón y Pimienta",
+    "category": "Aves y Carnes",
+    "prepTime": "5 min",
+    "cookTime": "25 min",
+    "servings": 3,
+    "calories": 270,
+    "difficulty": "Fácil",
+    "description": "Alitas súper crujientes sin una gota de aceite añadido. La pimienta y el limón les aportan un toque ácido y picante adictivo.",
+    "ingredients": [
+      "750g de alitas de pollo limpias y cortadas en dos",
+      "1 cucharada de maicena (ayuda a que queden extra crujientes)",
+      "1 cucharada de condimento de limón y pimienta (lemon pepper)",
+      "1/2 cucharadita de ajo en polvo",
+      "1/2 cucharadita de sal fina"
+    ],
+    "steps": [
+      "Seca muy bien las alitas de pollo con papel absorbente (la humedad es enemiga del crujiente).",
+      "En un bol grande, mezcla las alitas con la maicena, el condimento de limón y pimienta, el ajo en polvo y la sal. Asegúrate de cubrirlas bien.",
+      "Coloca las alitas en la cesta de la freidora sin amontonarlas demasiado (si es necesario, haz dos tandas).",
+      "Cocina a 180°C durante 20 minutos, dándoles la vuelta o agitando la cesta cada 7 minutos.",
+      "Sube la temperatura a 200°C los últimos 5 minutos para lograr un color dorado oscuro y un crujiente de fritura espectacular."
+    ],
+    "tips": "La grasa natural de la piel de las alitas es suficiente para conseguir el crujiente; no es necesario añadir aceite."
+  },
+  {
+    "id": 32,
+    "title": "Solomillo de Cerdo Glaseado con Miel y Mostaza",
+    "category": "Aves y Carnes",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "servings": 3,
+    "calories": 210,
+    "difficulty": "Fácil",
+    "description": "Un solomillo tierno y jugoso con una costra glaseada agridulce que realza el sabor de la carne magra.",
+    "ingredients": [
+      "1 solomillo de cerdo de unos 450g",
+      "2 cucharadas de mostaza de Dijon",
+      "1 cucharada de miel pura de abejas",
+      "1 cucharada de aceite de oliva",
+      "1 diente de ajo machacado",
+      "Sal y pimienta negra al gusto"
+    ],
+    "steps": [
+      "Salpimienta generosamente el solomillo de cerdo por todos los lados.",
+      "En un tazón pequeño, mezcla la mostaza de Dijon, la miel, el aceite de oliva y el ajo machacado para hacer la salsa del glaseado.",
+      "Pinta todo el solomillo con dos tercios de la mezcla de mostaza y miel utilizando una brocha de cocina.",
+      "Introduce el solomillo entero en la freidora (si es muy largo, puedes doblarlo ligeramente en forma de U o cortarlo por la mitad).",
+      "Cocina a 180°C durante 15 minutos, dándole la vuelta a la mitad de la cocción.",
+      "A los 12 minutos, pinta el solomillo con el glaseado restante.",
+      "Saca de la freidora y déjalo reposar en una tabla de cortar 5 minutos antes de filetearlo en rodajas de 1.5 cm de grosor."
+    ],
+    "tips": "Dejar reposar la carne después de cocinar es crucial para que los jugos se redistribuyan y quede extremadamente tierna."
+  },
+  {
+    "id": 33,
+    "title": "Tacos de Pollo Desmechado Express",
+    "category": "Aves y Carnes",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "servings": 2,
+    "calories": 240,
+    "difficulty": "Fácil",
+    "description": "Tacos llenos de sabor mexicano con pollo desmechado cocinado con cebolla, pimientos y especias en tiempo récord.",
+    "ingredients": [
+      "250g de pechuga de pollo picada en tiras finas",
+      "1/2 pimiento verde y 1/2 pimiento rojo en tiras finas",
+      "1/2 cebolla en juliana",
+      "1 cucharadita de mezcla de especias para fajitas (comino, pimentón, chile, ajo en polvo)",
+      "4 tortillas de maíz pequeñas",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un recipiente hondo apto para la freidora de aire, mezcla las tiras de pollo, la cebolla, los pimientos y las especias con una cucharadita de aceite.",
+      "Coloca el recipiente en la freidora y cocina a 190°C durante 12-15 minutos. Remueve la mezcla con una cuchara a mitad del tiempo.",
+      "Una vez cocido, desmecha ligeramente los trozos de pollo con ayuda de dos tenedores dentro del mismo jugo de la verdura.",
+      "Humedece las tortillas de maíz en el microondas o tuéstalas 1 minuto en la freidora limpia.",
+      "Rellena las tortillas con el pollo desmechado y añade cilantro fresco por encima si lo deseas."
+    ],
+    "tips": "Añade un chorrito de lima fresca por encima justo antes de comer para darle un toque cítrico y refrescante."
+  },
+  {
+    "id": 34,
+    "title": "Fajitas de Ternera Express",
+    "category": "Aves y Carnes",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "servings": 2,
+    "calories": 280,
+    "difficulty": "Fácil",
+    "description": "Fajitas saludables con carne de ternera magra y verduras crujientes sazonadas al estilo tex-mex.",
+    "ingredients": [
+      "250g de filete de ternera magra cortado en tiras finas",
+      "1 pimiento verde mediano cortado en tiras",
+      "1 cebolla mediana en juliana",
+      "1 cucharadita de cilantro molido y comino",
+      "1 cucharadita de pimentón ahumado",
+      "Sal y pimienta al gusto",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un bol, mezcla las tiras de ternera con los pimientos, la cebolla, las especias y una pizca de sal.",
+      "Pulveriza la mezcla con un poco de aceite de oliva y remueve.",
+      "Coloca la carne y las verduras directamente en la cesta de la freidora (puedes usar un papel para hornear si deseas conservar los jugos).",
+      "Cocina a 200°C durante 8-10 minutos, abriendo a los 5 minutos para remover concienzudamente.",
+      "Sirve en tortillas integrales calientes."
+    ],
+    "tips": "Para que la ternera quede jugosa, córtala en dirección contraria a las fibras musculares de la pieza de carne."
+  },
+  {
+    "id": 35,
+    "title": "Nuggets de Pollo con Avena y Almendras",
+    "category": "Aves y Carnes",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "servings": 2,
+    "calories": 220,
+    "difficulty": "Fácil",
+    "description": "La alternativa fit a los nuggets industriales. Rebozado crujiente de almendras y avena alta en fibra y proteína.",
+    "ingredients": [
+      "250g de pechuga de pollo limpia cortada en dados de bocado",
+      "1 huevo batido",
+      "1/4 taza de harina de almendras",
+      "1/4 taza de copos de avena triturados (harina de avena)",
+      "1/2 cucharadita de ajo y cebolla en polvo",
+      "Sal y pimienta",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Sazona los dados de pollo con sal, pimienta, ajo y cebolla en polvo.",
+      "En un plato, mezcla la harina de almendras y la harina de avena.",
+      "Pasa cada trozo de pollo primero por el huevo batido y después por la mezcla de harinas, presionando para lograr un rebozado uniforme.",
+      "Coloca los nuggets en la cesta de la freidora sin que se toquen.",
+      "Pulveriza con aceite en espray.",
+      "Cocina a 190°C durante 10 minutos, dándoles la vuelta a los 5 minutos para que se doren por ambos lados."
+    ],
+    "tips": "Para un crujiente extremo, puedes añadir un puñado de copos de maíz sin azúcar ligeramente machacados al rebozado."
+  },
+  {
+    "id": 36,
+    "title": "Hamburguesas de Pavo y Calabacín al Romero",
+    "category": "Aves y Carnes",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 185,
+    "difficulty": "Fácil",
+    "description": "Hamburguesas súper jugosas gracias a la incorporación de calabacín rallado en la masa. Bajas en calorías e increiblemente sabrosas.",
+    "ingredients": [
+      "300g de carne picada de pavo",
+      "1/2 calabacín rallado (escurrido para quitar exceso de agua)",
+      "1 cucharadita de romero fresco picado",
+      "1 diente de ajo picado muy fino",
+      "Sal y pimienta al gusto",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Ralla el calabacín y presiónalo con papel de cocina para eliminar toda la humedad sobrante.",
+      "En un bol grande, mezcla la carne de pavo, el calabacín rallado, el romero picado, el ajo, sal y pimienta.",
+      "Divide la mezcla y forma dos hamburguesas compactas del mismo grosor.",
+      "Coloca las hamburguesas en la cesta de la freidora de aire.",
+      "Pulveriza la superficie con una pizca de aceite de oliva en espray.",
+      "Cocina a 180°C durante 12 minutos (da la vuelta a los 6 minutos) hasta que la carne esté perfectamente cocinada en su interior."
+    ],
+    "tips": "Sírvelas al plato sobre una cama de rodajas de tomate y hojas de espinaca baby para un almuerzo low-carb."
+  },
+  {
+    "id": 37,
+    "title": "Costillitas de Cerdo con Barbacoa Saludable",
+    "category": "Aves y Carnes",
+    "prepTime": "10 min",
+    "cookTime": "30 min",
+    "servings": 2,
+    "calories": 320,
+    "difficulty": "Medio",
+    "description": "Costillas asadas tiernas y sabrosas con una salsa barbacoa exprés sin azúcares añadidos elaborada en casa.",
+    "ingredients": [
+      "500g de costillar de cerdo cortado en piezas individuales",
+      "1 cucharadita de pimentón ahumado y ajo en polvo",
+      "Sal y pimienta al gusto",
+      "Salsa Barbacoa Fit: 3 cucharadas de pasta de tomate, 1 cucharada de vinagre de manzana, 1 cucharadita de mostaza, edulcorante líquido o sirope de agave al gusto y una pizca de humo líquido."
+    ],
+    "steps": [
+      "Salpimienta las costillas y espolvoréalas con el pimentón y el ajo en polvo.",
+      "Colócalas en la freidora en una sola capa y cocina a 180°C durante 20 minutos (da la vuelta a los 10 minutos) para asarlas.",
+      "Mientras tanto, mezcla todos los ingredientes de la salsa barbacoa fit en un cuenco.",
+      "A los 20 minutos, saca las costillas de la cesta y pincélalas generosamente por ambos lados con la salsa.",
+      "Regresa las costillas a la freidora y cocina a 200°C durante 8-10 minutos más, hasta que la salsa caramelice ligeramente en la superficie."
+    ],
+    "tips": "Si el costillar tiene la membrana plateada en la parte de los huesos, retírala antes de sazonar para que la carne quede aún más blanda."
+  },
+  {
+    "id": 38,
+    "title": "Kebab de Pollo Casero con Salsa de Yogur",
+    "category": "Aves y Carnes",
+    "prepTime": "15 min",
+    "cookTime": "15 min",
+    "servings": 2,
+    "calories": 250,
+    "difficulty": "Fácil",
+    "description": "Tu propio döner kebab saludable en casa. Pollo marinado con especias tradicionales asado y cortado en tiras crujientes.",
+    "ingredients": [
+      "350g de pechuga o contramuslo de pollo en filetes finos",
+      "1 cucharadita de mezcla especias (comino, cilantro, cúrcuma, ajo en polvo, orégano)",
+      "1 cucharada de zumo de limón y 1 de yogur natural",
+      "Sal y pimienta",
+      "Salsa de yogur: 1 yogur griego natural desnatado, zumo de limón, menta fresca y una pizca de sal"
+    ],
+    "steps": [
+      "Marina el pollo mezclándolo en un bol con el limón, la cucharada de yogur y las especias durante 15 minutos en el frigorífico.",
+      "Apila los filetes marinados unos encima de otros apretándolos bien para formar un bloque compacto.",
+      "Coloca el bloque en la cesta de la freidora (puedes atravesarlo con una brocha grande para sujetarlo).",
+      "Cocina a 190°C durante 15 minutos.",
+      "Saca de la freidora y corta el pollo en tiras muy finas con un cuchillo afilado.",
+      "Regresa las tiras a la freidora durante 2 minutos a 200°C para dorar los bordes de la carne.",
+      "Sirve en pan pita integral con ensalada y la salsa de yogur."
+    ],
+    "tips": "Marinar el pollo desde la noche anterior potenciará los sabores de forma espectacular."
+  },
+  {
+    "id": 39,
+    "title": "Muslos de Pollo al Ajillo y Tomillo",
+    "category": "Aves y Carnes",
+    "prepTime": "5 min",
+    "cookTime": "22 min",
+    "servings": 2,
+    "calories": 240,
+    "difficulty": "Fácil",
+    "description": "Muslos de pollo dorados y crujientes por fuera, con toda la jugosidad en su interior y un aroma tradicional a ajo y tomillo.",
+    "ingredients": [
+      "4 muslos de pollo pequeños (con piel o sin piel para menor grasa)",
+      "4 dientes de ajo con piel (chafados)",
+      "1 cucharada de aceite de oliva",
+      "1 cucharadita de tomillo seco o fresco",
+      "Sal y pimienta negra al gusto"
+    ],
+    "steps": [
+      "Salpimienta los muslos de pollo y mézclalos en un bol con el aceite de oliva y el tomillo.",
+      "Coloca los muslos en la cesta de la freidora con la piel (o la parte más carnosa) hacia abajo.",
+      "Reparte los ajos chafados por la cesta junto al pollo.",
+      "Cocina a 180°C durante 15 minutos.",
+      "Da la vuelta a los muslos de pollo y cocina otros 7-8 minutos a 200°C para lograr que la piel quede crujiente y dorada.",
+      "Sirve caliente decorado con los ajos asados."
+    ],
+    "tips": "Los ajos chafados con piel se asan en su propio jugo sin quemarse y quedan dulces y cremosos por dentro."
+  },
+  {
+    "id": 40,
+    "title": "Ternera Salteada con Espárragos y Sésamo",
+    "category": "Aves y Carnes",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 230,
+    "difficulty": "Fácil",
+    "description": "Un salteado rápido de ternera con espárragos verdes frescos cocinado a alta temperatura al estilo wok oriental.",
+    "ingredients": [
+      "250g de filete de ternera tierno en tiras finas",
+      "1 manojo de espárragos trigueros cortados en trozos de 3 cm",
+      "1 cucharada de salsa de soja baja en sodio",
+      "1 cucharadita de aceite de sésamo y semillas de sésamo",
+      "1 diente de ajo y 1 rodaja de jengibre picaditos",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un bol, mezcla la ternera con la soja, el ajo, el jengibre y el aceite de sésamo.",
+      "En un recipiente apto para la freidora de aire, coloca las tiras de carne y los espárragos.",
+      "Pulveriza ligeramente con aceite de oliva.",
+      "Cocina a 200°C durante 8 minutos, removiendo la cesta a los 4 minutos.",
+      "Espolvorea las semillas de sésamo por encima y sirve inmediatamente."
+    ],
+    "tips": "Los espárragos deben quedar de un color verde vibrante y crujientes; no los sobrecocines."
+  },
+  {
+    "id": 41,
+    "title": "Lomo de Cerdo Relleno de Manzana y Nueces",
+    "category": "Aves y Carnes",
+    "prepTime": "15 min",
+    "cookTime": "20 min",
+    "servings": 3,
+    "calories": 240,
+    "difficulty": "Medio",
+    "description": "Una receta de aire festivo con lomo de cerdo tierno y un relleno dulce y crujiente muy equilibrado.",
+    "ingredients": [
+      "1 pieza de lomo de cerdo de 450g",
+      "1/2 manzana roja picada en cubos muy pequeños",
+      "30g de nueces peladas picadas",
+      "1 cucharada de pasas (opcional)",
+      "Sal, pimienta y una pizca de canela",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Abre el lomo de cerdo con un cuchillo largo haciendo un corte horizontal para dejarlo plano como un libro grande. Salpimienta la pieza.",
+      "En un bol, mezcla los cubitos de manzana, las nueces picadas, las pasas y la pizca de canela.",
+      "Extiende el relleno de manzana sobre el lomo abierto.",
+      "Enrolla la carne apretando con cuidado y átala con hilo de cocina para asegurar que el relleno no se salga.",
+      "Pulveriza el rollo con aceite de oliva en espray.",
+      "Colócalo en la freidora y cocina a 180°C durante 20 minutos (gira a la mitad del tiempo).",
+      "Retira el hilo de cocina y corta en rodajas antes de servir."
+    ],
+    "tips": "Pincela el rollo de carne con una gota de miel disuelta en agua a los 15 minutos para darle un precioso tono dorado caramelizado."
+  },
+  {
+    "id": 42,
+    "title": "Pechuga de Pavo Asada a las Finas Hierbas",
+    "category": "Aves y Carnes",
+    "prepTime": "5 min",
+    "cookTime": "25 min",
+    "servings": 4,
+    "calories": 160,
+    "difficulty": "Fácil",
+    "description": "Una opción ideal para embutido casero saludable. Pavo asado jugoso a las finas hierbas sin conservantes.",
+    "ingredients": [
+      "500g de pechuga de pavo entera en una pieza",
+      "1 cucharada de hierbas provenzales (tomillo, romero, albahaca, orégano)",
+      "1 cucharadita de ajo en polvo y cebolla en polvo",
+      "1 cucharada de aceite de oliva virgen extra",
+      "Sal y pimienta negra al gusto"
+    ],
+    "steps": [
+      "En un bol pequeño, mezcla el aceite de oliva con las finas hierbas, el ajo en polvo, la cebolla en polvo, la sal y la pimienta para crear una pasta aromatizada.",
+      "Frota la pechuga de pavo con la pasta de hierbas cubriendo toda la superficie por completo.",
+      "Coloca la pechuga en la cesta de la freidora de aire.",
+      "Cocina a 170°C durante 25 minutos, dándole la vuelta a la mitad de la cocción. Comprueba que la temperatura interna de la carne alcance los 74°C con un termómetro.",
+      "Deja enfriar completamente antes de filetearla finamente en lonchas."
+    ],
+    "tips": "Es una alternativa perfecta, económica y baja en sodio al fiambre de pavo industrial para sándwiches y ensaladas."
+  },
+  {
+    "id": 43,
+    "title": "Salmón con Costra de Hierbas y Pistachos",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 290,
+    "difficulty": "Fácil",
+    "description": "Lomos de salmón tiernos y jugosos cubiertos con una costra crujiente de pistachos y hierbas frescas.",
+    "ingredients": [
+      "2 lomos de salmón fresco (aprox. 150g cada uno)",
+      "1/4 taza de pistachos pelados picados muy finos",
+      "2 cucharadas de pan rallado integral o panko",
+      "1 cucharadita de mostaza de Dijon antigua",
+      "Perejil fresco picado y ralladura de limón",
+      "Sal, pimienta y unas gotas de aceite de oliva"
+    ],
+    "steps": [
+      "Salpimienta los lomos de salmón.",
+      "Pinta la parte superior de cada lomo con una fina capa de mostaza de Dijon.",
+      "En un platito, mezcla los pistachos picados, el pan rallado integral, la ralladura de limón y el perejil fresco.",
+      "Presiona los lomos de salmón (por el lado de la mostaza) sobre la mezcla de pistachos para que se adhiera formando una costra gruesa.",
+      "Coloca los lomos en la freidora con la piel hacia abajo.",
+      "Rocía ligeramente con un hilo de aceite de oliva e introduce en la freidora.",
+      "Cocina a 180°C durante 8 minutos, hasta que la costra esté dorada y el salmón en su punto."
+    ],
+    "tips": "No es necesario darles la vuelta en la freidora; la costra de pistacho debe quedar arriba para tostarse adecuadamente."
+  },
+  {
+    "id": 44,
+    "title": "Brochetas de Langostinos al Ajillo y Pimentón",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "6 min",
+    "servings": 2,
+    "calories": 130,
+    "difficulty": "Fácil",
+    "description": "Langostinos tiernos ensartados con rodajas de limón, marinados con ajo picado y un toque ahumado de pimentón de la Vera.",
+    "ingredients": [
+      "300g de langostinos crudos pelados",
+      "2 dientes de ajo picados muy finos",
+      "1/2 cucharadita de pimentón ahumado dulce (o picante)",
+      "1 cucharada de aceite de oliva",
+      "1/2 limón cortado en rodajas finas",
+      "Sal fina y perejil picado"
+    ],
+    "steps": [
+      "En un bol, mezcla los langostinos con el aceite de oliva, el ajo picado, el pimentón y sal. Deja marinar 5 minutos.",
+      "Ensarta los langostinos en brochetas de madera alternándolos con rodajas de limón dobladas.",
+      "Coloca las brochetas en la freidora sin encabalgar.",
+      "Cocina a 190°C durante 6 minutos, dándoles la vuelta a los 3 minutos.",
+      "Decora con perejil fresco picado al salir."
+    ],
+    "tips": "Los langostinos se cocinan muy rápido; vigila la cocción para evitar que queden secos o correosos."
+  },
+  {
+    "id": 45,
+    "title": "Tacos de Pescado Crujiente con Chipotle",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "servings": 2,
+    "calories": 220,
+    "difficulty": "Fácil",
+    "description": "Tacos de pescado con un rebozado ligero súper crujiente y una salsa picante cremosa irresistible.",
+    "ingredients": [
+      "250g de filetes de pescado blanco firme (tipo merluza o bacalao) en tiras gruesas",
+      "1 huevo batido",
+      "1/2 taza de copos de maíz sin azúcar triturados",
+      "1/2 cucharadita de ajo en polvo y sal",
+      "4 tortillas de maíz pequeñas",
+      "Salsa de chipotle: 2 cucharadas de yogur griego, 1 cucharadita de salsa chipotle (o chile en polvo) y limón"
+    ],
+    "steps": [
+      "Sazona las tiras de pescado con sal y ajo en polvo.",
+      "Pásalas por el huevo batido y rebózalas con los copos de maíz triturados apretando bien para cubrir la pieza.",
+      "Coloca el pescado en la cesta de la freidora, pulveriza con aceite en espray y cocina a 190°C durante 10 minutos (da la vuelta a la mitad).",
+      "Prepara la salsa mezclando el yogur con el chipotle y unas gotas de limón.",
+      "Sirve las tiras de pescado crujientes sobre las tortillas templadas y adereza con la salsa."
+    ],
+    "tips": "Añade un poco de col lombarda en juliana y cilantro fresco para completar tus tacos con texturas y colores vibrantes."
+  },
+  {
+    "id": 46,
+    "title": "Bacalao con Alioli de Membrillo",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "servings": 2,
+    "calories": 210,
+    "difficulty": "Medio",
+    "description": "Una receta gourmet catalana adaptada a freidora de aire. Lomo de bacalao al punto gratinado con alioli de membrillo.",
+    "ingredients": [
+      "2 lomos de bacalao desalados (aprox. 150g cada uno)",
+      "2 cucharadas de mayonesa ligera o yogur griego natural",
+      "1 cucharada de dulce de membrillo suave",
+      "1/2 diente de ajo rallado",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Seca muy bien los lomos de bacalao con papel de cocina.",
+      "En un bol pequeño, chafa el dulce de membrillo con el ajo rallado y la mayonesa ligera hasta lograr una crema homogénea (alioli de membrillo).",
+      "Coloca el bacalao en la cesta de la freidora (puedes usar un papel para hornear engrasado) con la piel hacia abajo.",
+      "Cubre la superficie de los lomos de bacalao con una capa generosa del alioli de membrillo.",
+      "Cocina a 180°C durante 8 minutos y luego sube a 200°C durante 2 minutos más para gratinar la superficie."
+    ],
+    "tips": "El bacalao estará cocinado cuando las lascas de la carne se separen con facilidad al presionar ligeramente."
+  },
+  {
+    "id": 47,
+    "title": "Calamares a la Romana Crujientes y Sin Aceite",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 3,
+    "calories": 140,
+    "difficulty": "Medio",
+    "description": "Calamares rebozados con una textura extra crujiente lograda gracias al panko y cocinados sin sumergir en aceite.",
+    "ingredients": [
+      "450g de anillas de calamar limpias",
+      "1/2 taza de harina de garbanzo o trigo integral",
+      "1 huevo batido",
+      "1/2 taza de panko o pan rallado integral",
+      "Aceite de oliva en espray",
+      "Limón en rodajas para servir"
+    ],
+    "steps": [
+      "Seca muy bien las anillas de calamar con papel absorbente.",
+      "Pásalas primero por la harina sacudiendo el exceso, luego por el huevo batido y finalmente por el panko cubriéndolas bien.",
+      "Coloca las anillas en la freidora intentando que no se encabalguen para que queden crujientes por todos lados.",
+      "Pulveriza generosamente con aceite de oliva.",
+      "Cocina a 200°C durante 8 minutos, agitando a mitad de la cocción. Sirve con rodajas de limón."
+    ],
+    "tips": "Si usas harina de garbanzo para el rebozado, aportarás un toque crujiente rústico y un extra de proteínas de origen vegetal."
+  },
+  {
+    "id": 48,
+    "title": "Lubina al Papillote con Verduras",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 195,
+    "difficulty": "Fácil",
+    "description": "Lubina al vapor en su propio jugo con hortalizas de temporada, un plato limpio, sano y lleno de frescura marina.",
+    "ingredients": [
+      "2 filetes de lubina limpia con piel (aprox. 130g cada uno)",
+      "1/2 zanahoria picada en tiras finas",
+      "1/2 calabacín picado en juliana",
+      "1/2 cebolla tierna en rodajas finas",
+      "1 cucharada de aceite de oliva",
+      "Sal, pimienta y rodajas de lima o limón"
+    ],
+    "steps": [
+      "Corta dos cuadrados grandes de papel de horno.",
+      "Coloca una cama de zanahoria, calabacín y cebolla sazonados con sal en el centro de cada papel.",
+      "Pon un filete de lubina salpimentado encima de las verduras en cada paquete, añade unas rodajas de limón y media cucharada de aceite de oliva por encima.",
+      "Dobla los bordes del papel formando un paquete hermético (papillote) asegurándote de que no queden huecos libres.",
+      "Coloca los paquetes en la cesta de la freidora.",
+      "Cocina a 190°C durante 12 minutos. Abre los paquetes con cuidado (saldrá vapor caliente) y sirve."
+    ],
+    "tips": "El papillote concentra todos los aromas y jugos; es una cocción comodín para mantener el pescado muy jugoso."
+  },
+  {
+    "id": 49,
+    "title": "Hamburguesas de Salmón y Eneldo",
+    "category": "Pescados y Mariscos",
+    "prepTime": "15 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 220,
+    "difficulty": "Fácil",
+    "description": "Hamburguesas caseras de salmón fresco condimentadas con eneldo picado y limón. Sabrosas y llenas de omega-3.",
+    "ingredients": [
+      "300g de salmón fresco sin piel ni espinas",
+      "1 cucharada de eneldo fresco picado",
+      "1 cucharada de copos de avena finos (para ligar)",
+      "1/2 diente de ajo rallado y ralladura de limón",
+      "Sal y pimienta",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Pica el salmón fresco a cuchillo en trozos muy finos (no lo tritures en batidora para no perder textura).",
+      "En un bol, mezcla el salmón picado, el eneldo fresco, los copos de avena, el ajo rallado, la ralladura de limón, sal y pimienta.",
+      "Amasa ligeramente con las manos húmedas y forma dos hamburguesas compactas.",
+      "Colócalas en la freidora, pulveriza con aceite en espray y cocina a 180°C durante 8 minutos (da la vuelta a los 4 minutos)."
+    ],
+    "tips": "Sírvelas en pan integral con una salsa tártara fit elaborada a base de yogur griego, pepinillos picados y alcaparras."
+  },
+  {
+    "id": 50,
+    "title": "Dorada Asada con Patatas a lo Pobre",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "20 min",
+    "servings": 2,
+    "calories": 260,
+    "difficulty": "Medio",
+    "description": "Una dorada entera asada de manera tradicional y ligera, servida sobre una cama de patatas y cebolla.",
+    "ingredients": [
+      "1 dorada entera mediana limpia y con unos cortes en los lomos",
+      "1 patata mediana pelada y cortada en rodajas muy finas (2 mm)",
+      "1/2 cebolla cortada en aros finos",
+      "1 cucharada de aceite de oliva virgen extra",
+      "Sal, pimienta y limón en rodajas"
+    ],
+    "steps": [
+      "En un molde apto para freidora, mezcla las rodajas finas de patata y cebolla con sal y el aceite de oliva. Cocina a 180°C durante 10 minutos para ablandarlas.",
+      "Sazona la dorada con sal y pimienta. Introduce rodajas de limón en los cortes del lomo y en la cavidad interior.",
+      "Coloca la dorada sobre la cama de patatas y cebolla pre-cocidas.",
+      "Regresa el molde a la freidora de aire.",
+      "Cocina a 180°C durante 10-12 minutos más, hasta que la dorada esté bien asada y la piel dorada por fuera."
+    ],
+    "tips": "Las rodajas de patata deben ser finas como patatas de tortilla para que se cocinen al mismo tiempo que el pescado."
+  },
+  {
+    "id": 51,
+    "title": "Colas de Langosta con Mantequilla de Ajo",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 180,
+    "difficulty": "Difícil",
+    "description": "Un plato de fiesta lujoso y espectacular. Colas de langosta abiertas bañadas con mantequilla ligera de ajo y hierbas.",
+    "ingredients": [
+      "2 colas de langosta frescas o descongeladas",
+      "1 cucharada de mantequilla ligera (derretida)",
+      "1 diente de ajo picado muy fino",
+      "Perejil picado y zumo de limón",
+      "Una pizca de sal y pimienta blanca"
+    ],
+    "steps": [
+      "Corta el caparazón superior de las colas de langosta a lo largo con unas tijeras fuertes de cocina, deteniéndote justo antes del extremo de la cola.",
+      "Abre el caparazón y levanta con cuidado la carne de la langosta hacia arriba colocándola sobre el caparazón pero sin desprender el extremo.",
+      "Mezcla la mantequilla derretida, el ajo picado, el perejil, el zumo de limón, sal y pimienta en un recipiente.",
+      "Pinta la carne de las langostas generosamente con la mezcla de mantequilla aromática.",
+      "Coloca las colas de langosta preparadas en la cesta de la freidora.",
+      "Cocina a 190°C durante 7-8 minutos, hasta que la carne esté opaca y tierna."
+    ],
+    "tips": "No cocines de más la langosta; si te excedes de tiempo quedará gomosa y dura."
+  },
+  {
+    "id": 52,
+    "title": "Atún Teriyaki Sellado al Sésamo",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "4 min",
+    "servings": 2,
+    "calories": 220,
+    "difficulty": "Medio",
+    "description": "Lomos de atún marinados con salsa teriyaki casera y rebozados en semillas de sésamo, sellados rápidamente en la freidora.",
+    "ingredients": [
+      "2 lomos de atún rojo fresco gruesos (aprox. 150g cada uno)",
+      "2 cucharadas de salsa de soja y 1 de miel",
+      "1 cucharadita de jengibre rallado",
+      "1/4 taza de semillas de sésamo (blanco y negro mezclado)",
+      "Aceite de sésamo en espray"
+    ],
+    "steps": [
+      "En un bol pequeño, mezcla la salsa de soja, la miel y el jengibre rallado.",
+      "Sumerge los lomos de atún en la marinada y déjalos reposar durante 10 minutos.",
+      "Saca los lomos y empápalos bien en las semillas de sésamo cubriendo todos los bordes.",
+      "Precalienta la freidora de aire a 200°C por 3 minutos.",
+      "Coloca los lomos en la cesta caliente, pulveriza ligeramente con aceite de sésamo y cocina a 200°C durante solo 3-4 minutos (dándoles la vuelta a los 2 minutos) para conseguir un sellado perfecto con el interior jugoso y rosado."
+    ],
+    "tips": "Para un auténtico atún sellado (tataki), el interior debe quedar poco hecho y rosado; si cocinas más tiempo quedará seco."
+  },
+  {
+    "id": 53,
+    "title": "Buñuelos de Bacalao Saludables",
+    "category": "Pescados y Mariscos",
+    "prepTime": "15 min",
+    "cookTime": "10 min",
+    "servings": 3,
+    "calories": 140,
+    "difficulty": "Medio",
+    "description": "Buñuelos de bacalao ligeros y esponjosos con ajo y perejil frescos cocinados con una fracción mínima de aceite.",
+    "ingredients": [
+      "200g de bacalao desalado y desmigado",
+      "1 huevo grande",
+      "3 cucharadas de harina de espelta integral",
+      "1/4 de taza de leche desnatada o agua",
+      "1 diente de ajo picado fino y perejil fresco picado",
+      "1/2 cucharadita de levadura química en polvo",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un bol grande, bate el huevo con el ajo, el perejil y la leche desnatada.",
+      "Añade la harina de espelta y la levadura en polvo, removiendo bien para crear una masa espesa homogénea.",
+      "Incorpora el bacalao desalado desmigado a la masa y mezcla bien.",
+      "Prepara papel de horno en la freidora y rocíalo con espray de aceite.",
+      "Ve colocando cucharadas de masa separadas unas de otras sobre el papel.",
+      "Cocina a 190°C durante 8-10 minutos, dándoles la vuelta con una espátula a la mitad del tiempo hasta que estén inflados y dorados."
+    ],
+    "tips": "Sirve los buñuelos de inmediato acompañados de alioli light exprés hecho con yogur griego y ajo."
+  },
+  {
+    "id": 54,
+    "title": "Sardinas Asadas con Limón y Perejil",
+    "category": "Pescados y Mariscos",
+    "prepTime": "5 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 160,
+    "difficulty": "Fácil",
+    "description": "El delicioso sabor del pescado azul asado con ajo, limón y perejil fresco, cocinado sin olores en la cocina.",
+    "ingredients": [
+      "8 sardinas frescas limpias (sin tripas ni escamas)",
+      "1 cucharada de aceite de oliva virgen extra",
+      "2 dientes de ajo en láminas finas",
+      "Zumo de 1/2 limón y perejil fresco picado",
+      "Sal marina gruesa al gusto"
+    ],
+    "steps": [
+      "Seca las sardinas limpias y colócalas en una sola capa en la cesta de la freidora sobre un papel de hornear.",
+      "Pinta las sardinas con el aceite de oliva, repárteles el ajo laminado por encima y sazona con sal marina gruesa.",
+      "Cocina en la freidora de aire a 190°C durante 8 minutos.",
+      "Añade el zumo de limón y el perejil picado inmediatamente al salir de la cesta y sirve calientes."
+    ],
+    "tips": "Asar pescado en la freidora de aire evita casi por completo los molestos olores en la cocina en comparación con la plancha."
+  },
+  {
+    "id": 55,
+    "title": "Brochetas de Pulpo y Patata con Pimentón",
+    "category": "Pescados y Mariscos",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 165,
+    "difficulty": "Fácil",
+    "description": "Brochetas al estilo gallego, combinando trozos de pata de pulpo cocida crujiente y dados de patatas asadas con pimentón.",
+    "ingredients": [
+      "250g de patas de pulpo cocidas",
+      "1 patata mediana cocida previamente al vapor (firme)",
+      "1 cucharada de aceite de oliva virgen extra",
+      "1/2 cucharadita de pimentón de la Vera dulce y picante",
+      "Sal en escamas al gusto"
+    ],
+    "steps": [
+      "Corta las patas de pulpo cocido en rodajas gruesas y la patata cocida en dados medianos del mismo grosor del pulpo.",
+      "Ensarta alternativamente trozos de pulpo y dados de patata en brochetas de madera.",
+      "Pinta las brochetas con el aceite de oliva.",
+      "Colócalas en la freidora y cocina a 200°C durante 8 minutos para que los bordes del pulpo se vuelvan crujientes y la patata se dore.",
+      "Retira, añade el pimentón y sal en escamas antes de servir."
+    ],
+    "tips": "Es fundamental que el pulpo y las patatas estén previamente cocidos; el paso por la freidora solo aporta el acabado tostado exterior crujiente."
+  },
+  {
+    "id": 56,
+    "title": "Coliflor Buffalo con Salsa de Yogur",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "servings": 4,
+    "calories": 85,
+    "difficulty": "Fácil",
+    "description": "Ramilletes de coliflor picantes e irresistibles imitando las famosas alitas buffalo. Un snack vegano espectacular.",
+    "ingredients": [
+      "1 coliflor mediana cortada en ramilletes de bocado",
+      "3 cucharadas de salsa picante tipo Frank's RedHot",
+      "1 cucharada de aceite de oliva",
+      "1 cucharadita de ajo en polvo",
+      "Salsa dip: 1/2 taza de yogur griego, 1 cucharadita de limón, cebollino fresco, sal y pimienta"
+    ],
+    "steps": [
+      "En un bol grande, mezcla la salsa picante, el aceite de oliva, el ajo en polvo y una pizca de sal.",
+      "Añade los ramilletes de coliflor al bol y remueve para impregnarlos bien de salsa.",
+      "Vierte la coliflor en la cesta de la freidora de aire.",
+      "Cocina a 190°C durante 15 minutos, agitando la cesta cada 5 minutos para lograr que se doren uniformemente.",
+      "Sirve bien caliente acompañado del dip cremoso de yogur."
+    ],
+    "tips": "Si prefieres un toque crujiente extra, pasa la coliflor por un poco de maicena o harina de garbanzo antes de cocinar."
+  },
+  {
+    "id": 57,
+    "title": "Patatas Gajo Rústicas Especiadas",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "10 min",
+    "cookTime": "20 min",
+    "servings": 3,
+    "calories": 140,
+    "difficulty": "Fácil",
+    "description": "Patatas cortadas en gajos crujientes por fuera e increíblemente tiernas en el interior, sazonadas al estilo rústico.",
+    "ingredients": [
+      "3 patatas medianas con piel limpias",
+      "1 cucharada de aceite de oliva virgen extra",
+      "1 cucharadita de pimentón dulce, ajo en polvo y cebolla en polvo",
+      "1 cucharadita de orégano seco y tomillo",
+      "Sal fina y pimienta negra al gusto"
+    ],
+    "steps": [
+      "Corta las patatas por la mitad a lo largo y luego en gajos medianos uniformes.",
+      "Sumérgelas en un bol de agua fría durante 15 minutos para retirar el exceso de almidón. Escurre y seca muy bien con un paño limpio.",
+      "En un bol, mezcla las patatas con el aceite de oliva, la sal y todas las especias hasta cubrirlas por completo.",
+      "Coloca las patatas en la freidora.",
+      "Cocina a 180°C durante 15 minutos, removiendo la cesta dos veces.",
+      "Sube la temperatura a 200°C los últimos 5 minutos para tostarlas y lograr que queden crujientes."
+    ],
+    "tips": "Dejarles la piel no solo aporta fibra, sino que ayuda a conservar la forma de los gajos y mejora la textura crujiente."
+  },
+  {
+    "id": 58,
+    "title": "Berenjenas Rellenas de Pisto y Lentejas",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "10 min",
+    "cookTime": "20 min",
+    "servings": 2,
+    "calories": 180,
+    "difficulty": "Fácil",
+    "description": "Berenjenas asadas rellenas de verduras picaditas y lentejas para un plato vegetariano completo rico en proteínas y fibra.",
+    "ingredients": [
+      "1 berenjena grande",
+      "1/2 taza de pisto casero de verduras (tomate, pimiento, cebolla, calabacín)",
+      "1/2 taza de lentejas cocidas de bote (escurridas)",
+      "2 cucharadas de queso rallado light",
+      "Aceite de oliva en espray y sal"
+    ],
+    "steps": [
+      "Corta la berenjena por la mitad a lo largo. Haz unos cortes cruzados profundos en la pulpa sin dañar la piel.",
+      "Sazona con sal y pulveriza un poco de aceite de oliva en espray.",
+      "Introduce las berenjenas en la freidora y cocina a 180°C durante 12-14 minutos, hasta que la pulpa esté blanda.",
+      "Saca las berenjenas, vacía un poco de la pulpa con una cuchara y mézclala en un bol con el pisto de verduras y las lentejas.",
+      "Rellena de nuevo las mitades de berenjena con la mezcla de verduras y lentejas.",
+      "Espolvorea el queso rallado light por encima.",
+      "Regresa a la freidora y cocina a 190°C durante 5 minutos para fundir y gratinar el queso."
+    ],
+    "tips": "Puedes sazonar las lentejas con un poco de comino para realzar el sabor del relleno."
+  },
+  {
+    "id": 59,
+    "title": "Calabaza Asada con Feta y Granada",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "10 min",
+    "cookTime": "18 min",
+    "servings": 3,
+    "calories": 120,
+    "difficulty": "Fácil",
+    "description": "Calabaza caramelizada asada en dados con el contraste salado del queso feta y el toque dulce y crujiente de las semillas de granada.",
+    "ingredients": [
+      "400g de calabaza pelada y cortada en dados de 2 cm",
+      "1 cucharada de aceite de oliva",
+      "1 cucharadita de romero seco y sal",
+      "50g de queso feta desmigado",
+      "2 cucharadas de semillas de granada fresca"
+    ],
+    "steps": [
+      "En un bol, mezcla los dados de calabaza con el aceite de oliva, el romero y sal.",
+      "Coloca la calabaza en la cesta de la freidora de aire.",
+      "Cocina a 190°C durante 15-18 minutos, agitando a la mitad del tiempo hasta que la calabaza esté tierna y los bordes comiencen a dorarse.",
+      "Retira la calabaza y colócala en una fuente.",
+      "Reparte el queso feta desmigado y las semillas de granada por encima inmediatamente antes de servir."
+    ],
+    "tips": "La granada aporta un contraste visual espectacular (rojo, verde y naranja) y una explosión jugosa en boca."
+  },
+  {
+    "id": 60,
+    "title": "Espárragos Trigueros Envueltos en Jamón",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "5 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 110,
+    "difficulty": "Fácil",
+    "description": "Espárragos verdes tiernos envueltos en crujiente jamón ibérico. Un aperitivo gourmet clásico y muy saludable.",
+    "ingredients": [
+      "12 espárragos trigueros frescos",
+      "6 lonchas de jamón ibérico o serrano finas (cortadas por la mitad a lo largo)",
+      "Aceite de oliva en espray",
+      "Pimienta negra recién molida"
+    ],
+    "steps": [
+      "Lava los espárragos y retira la parte inferior leñosa del tallo doblándolos (se romperán de forma natural por el punto correcto).",
+      "Envuelve cada espárrago con media loncha de jamón en forma de espiral cubriendo el tallo central.",
+      "Coloca los espárragos envueltos en la cesta de la freidora en una sola capa.",
+      "Pulveriza con una pizca de aceite de oliva y añade un toque de pimienta negra por encima (no agregues sal, el jamón aportará la suficiente).",
+      "Cocina a 190°C durante 6-8 minutos, hasta que el jamón esté crujiente y los espárragos tiernos."
+    ],
+    "tips": "No uses lonchas gruesas de jamón para que se cocinen al mismo ritmo que los espárragos y queden crujientes."
+  },
+  {
+    "id": 61,
+    "title": "Chips de Batata con Romero",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "servings": 2,
+    "calories": 125,
+    "difficulty": "Fácil",
+    "description": "Rodajas crujientes de batata asada con un toque aromático de romero fresco y sal marina.",
+    "ingredients": [
+      "1 batata mediana pelada",
+      "1 cucharada de aceite de oliva virgen extra",
+      "1 cucharadita de romero fresco picado",
+      "Sal marina gruesa al gusto"
+    ],
+    "steps": [
+      "Corta la batata en rodajas muy finas (1-2 mm de grosor) utilizando una mandolina o cuchillo afilado.",
+      "Pon las rodajas a remojo en agua fría durante 20 minutos. Enjuaga y seca minuciosamente con un paño.",
+      "En un bol, rocía las batatas con el aceite de oliva, el romero y una pizca de sal.",
+      "Colócalas en la freidora (intenta no amontonarlas en exceso para facilitar el flujo de aire).",
+      "Cocina a 170°C durante 15 minutos, removiendo la cesta cada 4 minutos.",
+      "Sácalas cuando los bordes comiencen a ondularse y se sientan firmes."
+    ],
+    "tips": "Es fundamental agitar la cesta a menudo para que no queden pegadas y lograr que se deshidraten correctamente."
+  },
+  {
+    "id": 62,
+    "title": "Pimientos Rellenos de Quinoa y Verduras",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "servings": 2,
+    "calories": 190,
+    "difficulty": "Fácil",
+    "description": "Pimientos asados rellenos de quinoa, dados de verduras y queso gratinado. Un plato vegetariano completo e ideal para cenas ligeras.",
+    "ingredients": [
+      "2 pimientos rojos o amarillos medianos",
+      "1 taza de quinoa cocida",
+      "1/2 taza de calabacín y cebolla salteados",
+      "2 cucharadas de salsa de tomate casera",
+      "2 cucharadas de queso mozzarella light rallado",
+      "Sal y comino al gusto"
+    ],
+    "steps": [
+      "Corta la parte superior de los pimientos y retira las semillas y filamentos blancos interiores.",
+      "Coloca los pimientos boca abajo en la freidora y cocina a 180°C durante 5 minutos para ablandarlos.",
+      "En un bol, mezcla la quinoa cocida, las verduras salteadas, la salsa de tomate, sal y comino.",
+      "Rellena los pimientos con la mezcla presionando con una cuchara.",
+      "Coloca los pimientos rellenos de pie en la freidora.",
+      "Espolvorea el queso por encima y cocina a 180°C durante 8-10 minutos, hasta que el queso esté fundido y dorado."
+    ],
+    "tips": "Elige pimientos que se mantengan estables en posición vertical o corta un pequeño trozo plano de la base para que no se caigan."
+  },
+  {
+    "id": 63,
+    "title": "Tomates Rellenos de Mozzarella y Pesto",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 2,
+    "calories": 145,
+    "difficulty": "Fácil",
+    "description": "Tomates jugosos asados calientes, rellenos de mozzarella fresca fundida e impregnados del aroma de la albahaca y los piñones.",
+    "ingredients": [
+      "2 tomates grandes maduros (tipo beef o de ensalada grandes)",
+      "80g de mozzarella de búfala o fresca light",
+      "2 cucharaditas de pesto de albahaca",
+      "Una pizca de sal, pimienta negra y orégano",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "Corta la tapa superior de los tomates. Vacía el interior con una cuchara, reservando la pulpa para otra receta.",
+      "Sazona el interior de los tomates vacíos con sal y orégano.",
+      "Rellena cada tomate alternando trozos de mozzarella fresca y media cucharadita de pesto de albahaca.",
+      "Coloca los tomates rellenos en la freidora y pulveriza con aceite en espray.",
+      "Cocina a 180°C durante 6-8 minutos, hasta que los tomates estén tiernos y el queso se derrita formando burbujas."
+    ],
+    "tips": "Coloca la tapa de tomate asada al lado para decorar el plato antes de servir."
+  },
+  {
+    "id": 64,
+    "title": "Alcachofas Crujientes con Alioli de Ajo Negro",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 120,
+    "difficulty": "Medio",
+    "description": "Alcachofas tiernas cortadas en cuartos, asadas hasta que las puntas queden crujientes y servidas con un toque exótico de ajo negro.",
+    "ingredients": [
+      "4 alcachofas medianas frescas",
+      "Zumo de 1/2 limón (para evitar la oxidación)",
+      "1 cucharada de aceite de oliva virgen extra",
+      "Sal fina y pimienta recién molida",
+      "Salsa: 2 cucharadas de mayonesa light y 2 dientes de ajo negro machacados"
+    ],
+    "steps": [
+      "Limpia las alcachofas quitando las hojas exteriores duras, corta las puntas y el tallo. Pártelas en cuartos e introdúcelas en agua con zumo de limón.",
+      "Cocina las alcachofas al vapor o en agua hirviendo durante 10 minutos hasta que estén tiernas. Escúrrelas muy bien.",
+      "En un bol, mézclalas con el aceite de oliva, la sal y la pimienta.",
+      "Colócalas en la freidora de aire con las hojas hacia arriba.",
+      "Cocina a 200°C durante 10-12 minutos, hasta que los bordes estén bien crujientes e inflados como chips.",
+      "Sirve calientes con la salsa de ajo negro preparada mezclando la mayonesa con el ajo negro machacado."
+    ],
+    "tips": "Esta receta también se puede preparar con alcachofas de lata en conserva bien escurridas y secas, acortando el tiempo a la mitad."
+  },
+  {
+    "id": 65,
+    "title": "Coles de Bruselas con Vinagreta de Arce",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "5 min",
+    "cookTime": "15 min",
+    "servings": 3,
+    "calories": 110,
+    "difficulty": "Fácil",
+    "description": "Coles de Bruselas asadas hasta quedar tostadas y crujientes por fuera, aliñadas con un glaseado agridulce irresistible.",
+    "ingredients": [
+      "400g de coles de Bruselas frescas, limpias y cortadas por la mitad",
+      "1 cucharada de aceite de oliva",
+      "1 cucharada de sirope de arce o miel pura",
+      "1 cucharada de vinagre balsámico de Módena",
+      "Sal y pimienta negra al gusto"
+    ],
+    "steps": [
+      "Limpia las coles retirando las hojas externas feas y córtalas por la mitad longitudinalmente.",
+      "En un bol grande, mezcla las coles de Bruselas con el aceite de oliva, sal y pimienta.",
+      "Vierte las coles en la cesta de la freidora de aire.",
+      "Cocina a 190°C durante 12-15 minutos, agitando a la mitad para que se doren por igual.",
+      "Mientras tanto, mezcla el sirope de arce y el vinagre balsámico.",
+      "Al sacar las coles de la freidora, añádeles el aderezo agridulce caliente, mezcla bien en un bol y sirve."
+    ],
+    "tips": "Las hojas sueltas que se desprendan al cortarlas quedarán extra crujientes al asarse, no las deseches."
+  },
+  {
+    "id": 66,
+    "title": "Mazorcas de Maíz con Mantequilla de Hierbas",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "5 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 135,
+    "difficulty": "Fácil",
+    "description": "Mazorcas tiernas y jugosas asadas en la freidora y untadas con una mantequilla aromática casera ligera.",
+    "ingredients": [
+      "2 mazorcas de maíz dulce fresco (pre-cocidas o crudas tiernas)",
+      "1 cucharadita de mantequilla ligera o aceite de coco",
+      "1/2 cucharadita de pimentón dulce o picante",
+      "Perejil y cilantro fresco picados",
+      "Sal fina al gusto"
+    ],
+    "steps": [
+      "Pinta las mazorcas de maíz con una fina capa de mantequilla ligera o aceite de coco.",
+      "Sazónalas con sal y espolvorea el pimentón dulce.",
+      "Introduce las mazorcas en la freidora de aire.",
+      "Cocina a 190°C durante 12 minutos, dándoles la vuelta a la mitad del tiempo para que queden bien tostadas por todos lados.",
+      "Sirve calientes decoradas con perejil y cilantro fresco picados."
+    ],
+    "tips": "Si usas maíz dulce fresco crudo, añade 3 minutos más a la cocción a temperatura moderada."
+  },
+  {
+    "id": 67,
+    "title": "Zanahorias Baby Glaseadas con Miel",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "5 min",
+    "cookTime": "15 min",
+    "servings": 3,
+    "calories": 90,
+    "difficulty": "Fácil",
+    "description": "Zanahorias baby tiernas con un glaseado dulce de miel y romero fresco. Un acompañamiento perfecto y colorido.",
+    "ingredients": [
+      "350g de zanahorias baby peladas",
+      "1 cucharada de aceite de oliva",
+      "1 cucharada de miel de abejas pura",
+      "1 cucharadita de romero fresco picado",
+      "Sal y pimienta al gusto"
+    ],
+    "steps": [
+      "En un bol grande, mezcla las zanahorias baby con el aceite de oliva, la miel, el romero picado, sal y pimienta.",
+      "Vierte las zanahorias en la cesta de la freidora.",
+      "Cocina a 180°C durante 15 minutos, agitando la cesta a los 7 y 12 minutos para asegurar un glaseado caramelizado uniforme.",
+      "Retira de la cesta cuando las zanahorias estén tiernas al pincharlas con un tenedor."
+    ],
+    "tips": "Si usas zanahorias normales, córtalas en bastones delgados de igual tamaño antes de sazonar."
+  },
+  {
+    "id": 68,
+    "title": "Ratatouille de Verduras en Capas",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "15 min",
+    "cookTime": "20 min",
+    "servings": 3,
+    "calories": 95,
+    "difficulty": "Medio",
+    "description": "El clásico plato francés presentado en un molde individual con rodajas vistosas de calabacín, berenjena y tomate.",
+    "ingredients": [
+      "1/2 calabacín mediano cortado en rodajas muy finas (2 mm)",
+      "1/2 berenjena estrecha en rodajas muy finas",
+      "2 tomates medianos maduros en rodajas finas",
+      "4 cucharadas de salsa de tomate casera o puré de tomate",
+      "1 cucharadita de finas hierbas (tomillo, orégano, romero)",
+      "Aceite de oliva en espray y sal"
+    ],
+    "steps": [
+      "Engrasa un molde redondo pequeño apto para freidora y extiende la salsa de tomate en el fondo formando una base.",
+      "Coloca alternativamente rodajas de calabacín, berenjena y tomate de pie en espiral cubriendo todo el molde sobre la salsa.",
+      "Pulveriza las rodajas de verdura con aceite de oliva en espray y sazona con sal y finas hierbas.",
+      "Tapa el molde con un círculo de papel de horno.",
+      "Cocina a 170°C durante 15 minutos tapado.",
+      "Retira el papel superior y cocina otros 5 minutos a 180°C para dorar los bordes superiores de las hortalizas."
+    ],
+    "tips": "El truco para un ratatouille vistoso es comprar verduras del mismo grosor y diámetro aproximado."
+  },
+  {
+    "id": 69,
+    "title": "Tofu Crujiente Marinado con Soja y Jengibre",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "15 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 140,
+    "difficulty": "Fácil",
+    "description": "Cubitos de tofu crujientes por fuera y jugosos por dentro gracias a una marinada sabrosa y a la maicena.",
+    "ingredients": [
+      "300g de tofu extra firme",
+      "2 cucharadas de salsa de soja baja en sodio",
+      "1 cucharadita de jengibre fresco rallado",
+      "1 cucharadita de ajo en polvo",
+      "1 cucharada de maicena (clave para la textura crujiente)",
+      "Aceite de sésamo o de oliva en espray"
+    ],
+    "steps": [
+      "Envuelve el tofu en papel de cocina y colócale un peso encima durante 10 minutos para extraer todo el líquido posible.",
+      "Corta el tofu en dados medianos.",
+      "En un bol, mezcla los dados de tofu con la salsa de soja, el jengibre rallado y el ajo en polvo. Deja marinar 10 minutos.",
+      "Escurre el líquido sobrante y espolvorea la maicena sobre el tofu marinada, mezclando con cuidado para cubrir los dados.",
+      "Coloca el tofu en la cesta de la freidora, pulveriza con aceite y cocina a 200°C durante 12 minutos agitando cada 4 minutos."
+    ],
+    "tips": "La maicena forma una costra exterior fina muy crujiente similar a la del tofu frito oriental tradicional."
+  },
+  {
+    "id": 70,
+    "title": "Judías Verdes con Almendras Tostadas",
+    "category": "Verduras y Acompañamientos",
+    "prepTime": "5 min",
+    "cookTime": "10 min",
+    "servings": 2,
+    "calories": 85,
+    "difficulty": "Fácil",
+    "description": "Judías verdes frescas asadas hasta quedar crujientes e impregnadas con el sabor tostado de las almendras laminadas.",
+    "ingredients": [
+      "300g de judías verdes redondas frescas limpias",
+      "1 cucharada de aceite de oliva",
+      "2 cucharadas de almendras laminadas",
+      "1 diente de ajo laminado",
+      "Sal fina al gusto"
+    ],
+    "steps": [
+      "En un bol, mezcla las judías verdes limpias con el aceite de oliva, el ajo laminado y la sal.",
+      "Vierte la mezcla en la cesta de la freidora.",
+      "Cocina a 180°C durante 7 minutos.",
+      "Abre la cesta, añade las almendras laminadas repartidas por encima y cocina otros 3 minutos a 180°C hasta que las almendras se doren ligeramente."
+    ],
+    "tips": "Las judías verdes cocinadas en freidora quedan tersas y con un delicioso punto crujiente muy diferente a las hervidas."
+  },
+  {
+    "id": 71,
+    "title": "Manzanas Asadas con Canela y Nueces",
+    "category": "Postres Saludables",
+    "prepTime": "5 min",
+    "cookTime": "15 min",
+    "servings": 2,
+    "calories": 130,
+    "difficulty": "Fácil",
+    "description": "Un postre tradicional templado, dulce y reconfortante. Manzanas rellenas de frutos secos con aroma a canela.",
+    "ingredients": [
+      "2 manzanas medianas (tipo Reineta o Golden)",
+      "1 cucharadita de canela en polvo",
+      "20g de nueces peladas picadas",
+      "1 cucharada de pasas de corinto",
+      "1 cucharada de sirope de agave o miel de flores"
+    ],
+    "steps": [
+      "Lava las manzanas y retira el corazón con cuidado, abriendo un hueco ancho en el centro sin llegar a perforar la base por completo.",
+      "En un bol pequeño, mezcla las nueces picadas, las pasas, la canela y la miel.",
+      "Rellena el hueco central de cada manzana con la mezcla presionando ligeramente.",
+      "Coloca las manzanas rellenas de pie en la cesta de la freidora de aire.",
+      "Cocina a 170°C durante 15 minutos, hasta que la piel se arrugue y la manzana esté tierna al pincharla."
+    ],
+    "tips": "Sírvelas templadas acompañadas de una bola de yogur griego frío para crear un juego de temperaturas delicioso."
+  },
+  {
+    "id": 72,
+    "title": "Rosquillas Fit de Avena y Cacao",
+    "category": "Postres Saludables",
+    "prepTime": "10 min",
+    "cookTime": "8 min",
+    "servings": 6,
+    "calories": 120,
+    "difficulty": "Fácil",
+    "description": "Deliciosas rosquillas esponjosas elaboradas sin harinas refinadas y con un intenso sabor a cacao puro.",
+    "ingredients": [
+      "1/2 taza de harina de avena integral",
+      "2 cucharadas de cacao puro en polvo sin azúcar",
+      "1 huevo mediano",
+      "3 cucharadas de eritritol o endulzante de tu elección",
+      "1/4 taza de leche desnatada o bebida de almendras",
+      "1 cucharadita de levadura química en polvo",
+      "Aceite de oliva en espray"
+    ],
+    "steps": [
+      "En un bol, bate el huevo con el eritritol y la leche.",
+      "Añade la harina de avena, el cacao puro y la levadura. Mezcla bien hasta lograr una masa homogénea espesa.",
+      "Engrasa unos moldes de silicona individuales para rosquillas.",
+      "Reparte la masa de forma uniforme en los moldes.",
+      "Cocina en la freidora de aire a 160°C durante 8 minutos.",
+      "Deja enfriar en la rejilla antes de desmoldar."
+    ],
+    "tips": "Puedes derretir una onza de chocolate negro al 85% y decorar los donuts por encima al sacarlos."
+  },
+  {
+    "id": 73,
+    "title": "Tarta de Queso Ligera Individual",
+    "category": "Postres Saludables",
+    "prepTime": "5 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 140,
+    "difficulty": "Fácil",
+    "description": "Tarta de queso crema suave e individual, baja en carbohidratos y muy proteica, cocinada en moldes ramequín.",
+    "ingredients": [
+      "150g de queso crema tipo Philadelphia light",
+      "1 huevo mediano",
+      "2 cucharadas de yogur griego natural desnatado",
+      "2 cucharadas de eritritol o edulcorante equivalente",
+      "1 cucharadita de maicena",
+      "1/2 cucharadita de vainilla en polvo o líquida"
+    ],
+    "steps": [
+      "En un bol mediano, bate todos los ingredientes con unas varillas de mano hasta obtener una mezcla cremosa lisa y sin grumos.",
+      "Vierte la mezcla en dos moldes tipo ramequín previamente engrasados.",
+      "Precalienta la freidora de aire a 160°C.",
+      "Introduce los moldes en la cesta de la freidora.",
+      "Cocina a 160°C durante 12 minutos. El centro debe quedar ligeramente blando al moverlos.",
+      "Deja enfriar a temperatura ambiente y luego refrigera en la nevera al menos 2 horas antes de consumir."
+    ],
+    "tips": "Cúbrelas con una capa fina de mermelada de fresa o arándanos sin azúcar añadida justo antes de servir."
+  },
+  {
+    "id": 74,
+    "title": "Peras Especiadas al Horno con Crema de Coco",
+    "category": "Postres Saludables",
+    "prepTime": "5 min",
+    "cookTime": "15 min",
+    "servings": 2,
+    "calories": 125,
+    "difficulty": "Fácil",
+    "description": "Peras asadas dulces impregnadas de canela, clavo y vainilla, coronadas con una crema suave de coco.",
+    "ingredients": [
+      "2 peras grandes y maduras (tipo Conferencia o Williams)",
+      "1/2 cucharadita de canela y una pizca de clavo molido",
+      "1/2 cucharadita de vainilla líquida",
+      "1 cucharada de sirope de agave",
+      "Crema de coco ligera (parte sólida de una lata de leche de coco refrigerada) para decorar"
+    ],
+    "steps": [
+      "Corta las peras por la mitad a lo largo y retira la zona central de las semillas con una cucharita de postre.",
+      "Pinta las mitades de pera con el sirope de agave mezclado con la vainilla, la canela y el clavo.",
+      "Coloca las peras en la cesta de la freidora con la pulpa hacia arriba.",
+      "Cocina a 175°C durante 15 minutos, hasta que las peras estén muy tiernas y los bordes caramelizados.",
+      "Sirve templadas decoradas con una cucharada de la crema de coco fría."
+    ],
+    "tips": "El contraste entre el calor de la pera asada y la frescura de la crema de coco es sencillamente delicioso."
+  },
+  {
+    "id": 75,
+    "title": "Brownie de Aguacate y Chocolate Negro",
+    "category": "Postres Saludables",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "servings": 4,
+    "calories": 160,
+    "difficulty": "Medio",
+    "description": "Un brownie húmedo e intenso de chocolate negro, sustituyendo la mantequilla tradicional por aguacate para aportar grasas saludables.",
+    "ingredients": [
+      "1 aguacate mediano maduro machacado",
+      "80g de chocolate negro 85% derretido",
+      "1 huevo grande",
+      "3 cucharadas de harina de avena integral",
+      "3 cucharadas de eritritol o panela",
+      "1 cucharadita de levadura química en polvo",
+      "Un puñado de nueces picadas"
+    ],
+    "steps": [
+      "Tritura la pulpa del aguacate hasta conseguir un puré muy fino y sedoso sin trozos sueltos.",
+      "En un bol, mezcla el puré de aguacate, el chocolate negro derretido, el huevo y el eritritol hasta integrar.",
+      "Incorpora la harina de avena, la levadura y mezcla con suavidad.",
+      "Añade las nueces picadas y remueve con una espátula.",
+      "Vierte la masa en un molde cuadrado pequeño (engrasado o forrado con papel de horno) adecuado para la freidora.",
+      "Cocina a 160°C durante 15 minutos. El centro debe quedar compacto pero húmedo al pincharlo."
+    ],
+    "tips": "Deja enfriar el brownie completamente en la nevera antes de cortarlo para que la textura gane firmeza tradicional."
+  },
+  {
+    "id": 76,
+    "title": "Galletas de Avena, Coco y Chocolate",
+    "category": "Postres Saludables",
+    "prepTime": "10 min",
+    "cookTime": "10 min",
+    "servings": 8,
+    "calories": 95,
+    "difficulty": "Fácil",
+    "description": "Galletas rústicas crujientes elaboradas con copos de avena, coco rallado y chispas de chocolate negro sin azúcar.",
+    "ingredients": [
+      "1 taza de copos de avena",
+      "2 cucharadas de coco rallado sin azúcar",
+      "2 cucharadas de sirope de agave o miel",
+      "1 plátano maduro machacado",
+      "20g de pepitas de chocolate negro sin azúcar"
+    ],
+    "steps": [
+      "En un bol grande, machaca el plátano hasta hacerlo puré.",
+      "Añade los copos de avena, el coco rallado y el sirope. Mezcla bien hasta obtener una masa pegajosa compacta.",
+      "Añade las pepitas de chocolate negro y reparte de forma uniforme en la masa.",
+      "Divide la masa en 6-8 porciones, dándoles forma de galleta redonda aplanada.",
+      "Coloca papel de hornear en la freidora y distribuye las galletas separadas.",
+      "Cocina a 170°C durante 8-10 minutos, dándoles la vuelta a mitad del tiempo hasta que estén firmes y los bordes dorados."
+    ],
+    "tips": "Al sacarlas se sentirán un poco blandas en el centro, se endurecerán y volverán crujientes al enfriarse por completo."
+  },
+  {
+    "id": 77,
+    "title": "Crumble de Fresas y Avena",
+    "category": "Postres Saludables",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "servings": 2,
+    "calories": 135,
+    "difficulty": "Fácil",
+    "description": "Delicioso crumble templado de fresas dulces y jugosas cubiertas con una capa crujiente de avena y almendras.",
+    "ingredients": [
+      "1.5 tazas de fresas frescas troceadas",
+      "1/2 taza de copos de avena enteros",
+      "2 cucharadas de harina de almendras o nueces picadas",
+      "1 cucharada de aceite de coco derretido",
+      "1 cucharada de miel de abejas pura o sirope de agave",
+      "1 cucharadita de canela"
+    ],
+    "steps": [
+      "En un bol, mezcla las fresas troceadas con media cucharadita de miel y repártelas en el fondo de dos ramequines engrasados.",
+      "En otro bol, mezcla la avena, la harina de almendras, la canela, el aceite de coco derretido y la miel restante, frotando con los dedos hasta crear migas gruesas (crumble).",
+      "Reparte la mezcla de avena sobre las fresas en cada molde cubriéndolas por completo.",
+      "Coloca los moldes en la cesta de la freidora.",
+      "Cocina a 170°C durante 10-12 minutos, hasta que las fresas burbujeen y la capa de avena esté dorada y crujiente."
+    ],
+    "tips": "Esta receta queda fantástica sustituyendo las fresas por arándanos, frambuesas o trozos de manzana ácida."
+  },
+  {
+    "id": 78,
+    "title": "Plátanos Asados con Mantequilla de Cacahuete",
+    "category": "Postres Saludables",
+    "prepTime": "5 min",
+    "cookTime": "10 min",
+    "servings": 2,
+    "calories": 155,
+    "difficulty": "Fácil",
+    "description": "Un postre súper rápido y nutritivo. Plátano asado caramelizado relleno de mantequilla de cacahuete y chispas de chocolate.",
+    "ingredients": [
+      "2 plátanos grandes maduros (pero firmes, con piel)",
+      "1 cucharada de mantequilla de cacahuete natural 100%",
+      "1 cucharadita de pepitas de chocolate negro sin azúcar",
+      "Una pizca de canela en polvo"
+    ],
+    "steps": [
+      "Realiza un corte longitudinal profundo en la piel del plátano por el lado curvo interior, sin llegar a cortar la piel de la base.",
+      "Abre el plátano ligeramente para crear un canal largo en la pulpa.",
+      "Rellena el canal del plátano con la mantequilla de cacahuete y las pepitas de chocolate negro.",
+      "Espolvorea una pizca de canela sobre el relleno.",
+      "Coloca los plátanos de pie en la cesta de la freidora (puedes usar un trozo de papel de aluminio para sostenerlos).",
+      "Cocina a 180°C durante 8-10 minutos, hasta que la piel del plátano se vuelva negra y la pulpa esté blanda y caramelizada."
+    ],
+    "tips": "Se come directamente de la piel con una cuchara pequeña mientras esté templado y fundido."
+  },
+  {
+    "id": 79,
+    "title": "Muffins de Zanahoria y Nuez Fit",
+    "category": "Postres Saludables",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "servings": 6,
+    "calories": 135,
+    "difficulty": "Fácil",
+    "description": "Muffins especiados húmedos estilo Carrot Cake, elaborados con harina integral, nueces y zanahoria rallada.",
+    "ingredients": [
+      "1/2 taza de zanahoria rallada muy fina",
+      "1/2 taza de harina de avena o espelta integral",
+      "1 huevo grande",
+      "2 cucharadas de aceite de coco o compota de manzana",
+      "3 cucharadas de eritritol o miel de flores",
+      "1 cucharadita de levadura química y canela",
+      "20g de nueces peladas troceadas"
+    ],
+    "steps": [
+      "En un bol, bate el huevo con el eritritol y el aceite de coco derretido (o la compota de manzana).",
+      "Añade la harina, la levadura y la canela en polvo. Mezcla bien.",
+      "Incorpora la zanahoria rallada y las nueces picadas, removiendo con suavidad.",
+      "Divide la masa en 6 moldes de silicona para muffins.",
+      "Introduce en la freidora y cocina a 160°C durante 12 minutos.",
+      "Verifica con un palillo si sale limpio antes de retirar."
+    ],
+    "tips": "Añade un trocito de queso crema light con edulcorante encima de cada muffin ya frío para imitar el frosting de tarta de zanahoria."
+  },
+  {
+    "id": 80,
+    "title": "Trufas de Chocolate y Dátiles Crujientes",
+    "category": "Postres Saludables",
+    "prepTime": "10 min",
+    "cookTime": "5 min",
+    "servings": 10,
+    "calories": 85,
+    "difficulty": "Fácil",
+    "description": "Bombones de chocolate y dátiles con un centro tostado crujiente de avellana horneada de forma exprés.",
+    "ingredients": [
+      "1 taza de dátiles sin hueso tiernos (tipo Medjool)",
+      "2 cucharadas de cacao puro en polvo sin azúcar",
+      "10 avellanas enteras peladas",
+      "1 cucharada de aceite de coco derretido",
+      "Coco rallado para rebozar"
+    ],
+    "steps": [
+      "Introduce las avellanas peladas en la freidora y tuéstalas a 180°C durante 4-5 minutos hasta que adquieran color. Deja enfriar.",
+      "Remoja los dátiles en agua caliente durante 5 minutos para ablandarlos si están un poco secos. Escúrrelos bien.",
+      "En un procesador de alimentos, tritura los dátiles escurridos, el cacao puro en polvo y el aceite de coco hasta lograr una pasta densa maleable.",
+      "Toma una porción de pasta de dátil, aplánala en tu mano, introduce una avellana tostada entera en el centro y forma una bola compacta rodeando la avellana.",
+      "Reboza las trufas rodándolas por un plato con coco rallado hasta cubrirlas.",
+      "Refrigera en la nevera 30 minutos antes de consumir."
+    ],
+    "tips": "El contraste entre el dátil blando y el corazón crujiente tostado de avellana imita a los bombones gourmet tradicionales."
+  }
+];
+
+// Exponer la variable globalmente para que sea accesible en index.html
+if (typeof window !== 'undefined') {
+  window.recipes = recipes;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = recipes;
+}
+
+
+/* ==========================================================================
+   EBOOK DE RECETAS SANAS PARA FREIDORA DE AIRE - LÓGICA DE APLICACIÓN
+   ========================================================================== */
+
+// Mapa de URLs de imágenes alojadas en Cloudinary
+const CLOUDINARY_IMAGES = {
+  1: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205558/recipe_1_od3oma.jpg",
+  2: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205558/recipe_2_e2dulv.jpg",
+  3: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205558/recipe_3_irkjpd.jpg",
+  4: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205558/recipe_4_l73hyr.jpg",
+  5: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205558/recipe_5_p1pkds.jpg",
+  6: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205559/recipe_6_pug1hd.jpg",
+  7: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205559/recipe_7_tdbu0q.jpg",
+  8: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205559/recipe_8_ia0qua.jpg",
+  9: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205560/recipe_9_rtbfjy.jpg",
+  10: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205561/recipe_10_fuec8e.jpg",
+  11: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205561/recipe_11_fmaazz.jpg",
+  12: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205562/recipe_12_ucjjo9.jpg",
+  13: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205562/recipe_13_oscmwx.jpg",
+  14: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205563/recipe_14_h4jw62.jpg",
+  15: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205563/recipe_15_oajj2q.jpg",
+  16: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205563/recipe_16_iazgng.jpg",
+  17: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205564/recipe_17_edrans.jpg",
+  18: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205564/recipe_18_c3jd2f.jpg",
+  19: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205565/recipe_19_rxx1c5.jpg",
+  20: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205566/recipe_20_ayguyj.jpg",
+  21: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205566/recipe_21_obq7vn.jpg",
+  22: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205566/recipe_22_s3m9iv.jpg",
+  23: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205567/recipe_23_d81kz0.jpg",
+  24: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205567/recipe_24_k9jjlj.jpg",
+  25: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205568/recipe_25_orto6d.jpg",
+  26: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205569/recipe_26_lironr.jpg",
+  27: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205569/recipe_27_kfanxp.jpg",
+  28: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205569/recipe_28_mcssd0.jpg",
+  29: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205570/recipe_29_qde6sf.jpg",
+  30: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205570/recipe_30_qcawuc.jpg",
+  31: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205571/recipe_31_kyfnfv.jpg",
+  32: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205572/recipe_32_ri4cml.jpg",
+  33: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205572/recipe_33_xvfsbi.jpg",
+  34: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205572/recipe_34_xvzxf7.jpg",
+  35: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205573/recipe_35_pt1moc.jpg",
+  36: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205574/recipe_36_pzmbre.jpg",
+  37: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205575/recipe_37_nzyocn.jpg",
+  38: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205575/recipe_38_lvcjcx.jpg",
+  39: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205575/recipe_39_uizxn3.jpg",
+  40: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205575/recipe_40_n1694r.jpg",
+  41: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205576/recipe_41_tlzoyp.jpg",
+  42: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205576/recipe_42_jxyvgs.jpg",
+  43: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205577/recipe_43_kzclmj.jpg",
+  44: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205578/recipe_44_uc9qmo.jpg",
+  45: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205578/recipe_45_kcmxrf.jpg",
+  46: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205579/recipe_46_ia51x9.jpg",
+  47: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205579/recipe_47_v1rpsy.jpg",
+  48: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205579/recipe_48_v6ip7v.jpg",
+  49: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205580/recipe_49_nabvkn.jpg",
+  50: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205581/recipe_50_sb65wn.jpg",
+  51: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205581/recipe_51_kijuc7.jpg",
+  52: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205581/recipe_52_uimbgf.jpg",
+  53: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205582/recipe_53_i5roa0.jpg",
+  54: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205582/recipe_54_h4no4z.jpg",
+  55: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205583/recipe_55_k3paca.jpg",
+  56: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205583/recipe_56_eyamiv.jpg",
+  57: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205584/recipe_57_xizsao.jpg",
+  58: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205585/recipe_58_mgzf6c.jpg",
+  59: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205585/recipe_59_v8rgir.jpg",
+  60: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205589/recipe_60_hox1xv.jpg",
+  61: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205586/recipe_61_ieiqub.jpg",
+  62: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205586/recipe_62_y4dloa.jpg",
+  63: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205587/recipe_63_qmzqzq.jpg",
+  64: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205587/recipe_64_ngjfe6.jpg",
+  65: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205588/recipe_65_brzqpe.jpg",
+  66: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205588/recipe_66_kmhblj.jpg",
+  67: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205589/recipe_67_gjlox6.jpg",
+  68: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205589/recipe_68_qa6txx.jpg",
+  69: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205590/recipe_69_evducl.jpg",
+  70: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205590/recipe_70_mo9sie.jpg",
+  71: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205591/recipe_71_uriznq.jpg",
+  72: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205591/recipe_72_ypau9m.jpg",
+  73: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205592/recipe_73_djxgpv.jpg",
+  74: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205592/recipe_74_vu3zcz.jpg",
+  75: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205593/recipe_75_xhahye.jpg",
+  76: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205593/recipe_76_kyaazd.jpg",
+  77: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205594/recipe_77_tktxbf.jpg",
+  78: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205594/recipe_78_hfpnbz.jpg",
+  79: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205595/recipe_79_so3e7n.jpg",
+  80: "https://res.cloudinary.com/daijidw3t/image/upload/v1781205595/recipe_80_ial75c.jpg"
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Estado de la Aplicación
+  let activeCategory = 'all';
+  let searchQuery = '';
+  let difficultyFilter = 'all';
+  let showFavoritesOnly = false;
+  let favorites = JSON.parse(localStorage.getItem('airfryer_favs')) || [];
+
+  // Elementos DOM
+  const recipesGrid = document.getElementById('recipes-grid');
+  const searchInput = document.getElementById('search-input');
+  const categoryBadges = document.querySelectorAll('.filter-badge');
+  const difficultySelect = document.getElementById('difficulty-filter');
+  const favToggle = document.getElementById('fav-toggle');
+  const themeToggle = document.getElementById('theme-toggle');
+  const printBtn = document.getElementById('print-btn');
+  const printBookLayout = document.getElementById('print-book-layout');
+
+  // Modal
+  const modalOverlay = document.getElementById('recipe-modal');
+  const modalCloseBtn = document.getElementById('modal-close');
+  const modalBanner = document.getElementById('modal-banner-img');
+  const modalCategory = document.getElementById('modal-category');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalTime = document.getElementById('modal-time-val');
+  const modalDifficulty = document.getElementById('modal-difficulty-val');
+  const modalCalories = document.getElementById('modal-calories-val');
+  const modalServings = document.getElementById('modal-servings-val');
+  const modalIngredientsList = document.getElementById('modal-ingredients-list');
+  const modalStepsList = document.getElementById('modal-steps-list');
+  const modalChefTips = document.getElementById('modal-chef-tips-text');
+
+  // Inicializar
+  initLogin();
+  initTheme();
+  renderRecipes();
+  compilePrintLayout();
+
+  // ==========================================
+  // SISTEMA DE ACCESO / LOGIN
+  // ==========================================
+  function initLogin() {
+    const loginOverlay = document.getElementById('login-overlay');
+    if (!loginOverlay) return;
+
+    // Verificar si ya está autenticado
+    if (localStorage.getItem('airfryer_auth') === 'true') {
+      loginOverlay.classList.add('hidden');
+      return;
+    }
+
+    const loginForm = document.getElementById('login-form');
+    const loginPassword = document.getElementById('login-password');
+    const loginError = document.getElementById('login-error');
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = loginPassword.value.trim();
+      
+      // La contraseña es simple y memorable: AIRFRYER80FIT
+      if (password === 'AIRFRYER80FIT') {
+        localStorage.setItem('airfryer_auth', 'true');
+        loginOverlay.classList.add('hidden');
+      } else {
+        loginError.style.display = 'block';
+        loginPassword.value = '';
+        loginPassword.focus();
+        
+        // Reiniciar animación de sacudida
+        loginError.style.animation = 'none';
+        loginError.offsetHeight; // forzar reflow
+        loginError.style.animation = '';
+      }
+    });
+  }
+
+  // ==========================================
+  // CONFIGURACIÓN DE TEMA (CLARO / OSCURO)
+  // ==========================================
+  function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+  });
+
+  function updateThemeIcon(theme) {
+    themeToggle.innerHTML = theme === 'dark' 
+      ? `<svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>`
+      : `<svg viewBox="0 0 24 24"><path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.6-.1 1.2.3 1.3.9.1.6-.2 1.2-.8 1.4-3.5 1-6 4.1-6 7.7 0 4.4 3.6 8 8 8 3.6 0 6.7-2.5 7.7-6 .2-.6.8-.9 1.4-.8.6.1 1 .7.9 1.3-.9 4.7-5 8.3-9.8 8.3z"/></svg>`;
+  }
+
+  // ==========================================
+  // BUSCADOR Y FILTRADO DE RECETAS
+  // ==========================================
+  searchInput.addEventListener('input', (e) => {
+    searchQuery = e.target.value.toLowerCase().trim();
+    renderRecipes();
+  });
+
+  categoryBadges.forEach(badge => {
+    badge.addEventListener('click', () => {
+      categoryBadges.forEach(b => b.classList.remove('active'));
+      badge.classList.add('active');
+      activeCategory = badge.dataset.category;
+      renderRecipes();
+    });
+  });
+
+  difficultySelect.addEventListener('change', (e) => {
+    difficultyFilter = e.target.value;
+    renderRecipes();
+  });
+
+  favToggle.addEventListener('change', (e) => {
+    showFavoritesOnly = e.target.checked;
+    renderRecipes();
+  });
+
+  // ==========================================
+  // RENDERIZADO DE RECETAS (EN GRID WEB)
+  // ==========================================
+  function renderRecipes() {
+    recipesGrid.innerHTML = '';
+    
+    // Filtrar recetas
+    const filteredRecipes = window.recipes.filter(recipe => {
+      const matchesSearch = recipe.title.toLowerCase().includes(searchQuery) ||
+                            recipe.description.toLowerCase().includes(searchQuery) ||
+                            recipe.ingredients.some(ing => ing.toLowerCase().includes(searchQuery));
+      
+      const matchesCategory = activeCategory === 'all' || recipe.category === activeCategory;
+      const matchesDifficulty = difficultyFilter === 'all' || recipe.difficulty === difficultyFilter;
+      const matchesFavorite = !showFavoritesOnly || favorites.includes(recipe.id);
+
+      return matchesSearch && matchesCategory && matchesDifficulty && matchesFavorite;
+    });
+
+    if (filteredRecipes.length === 0) {
+      recipesGrid.innerHTML = `
+        <div class="no-results">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <h3>No se encontraron recetas</h3>
+          <p>Prueba a cambiar los filtros o los términos de búsqueda.</p>
+        </div>
+      `;
+      return;
+    }
+
+    filteredRecipes.forEach(recipe => {
+      const isFav = favorites.includes(recipe.id);
+      const card = document.createElement('div');
+      card.className = 'recipe-card';
+      
+      // Asignar imagen de Cloudinary (o ruta local de respaldo si falla/no existe)
+      const imagePath = CLOUDINARY_IMAGES[recipe.id] || `images/recipes/recipe_${recipe.id}.png`;
+      const fallbackColor = getFallbackGradient(recipe.category);
+
+      card.innerHTML = `
+        <div class="card-header-image" style="background: ${fallbackColor}">
+          <img src="${imagePath}" alt="${recipe.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="card-placeholder-illustration" style="display: none;">
+            <div class="placeholder-glass">
+              <span class="placeholder-emoji">${getCategoryEmoji(recipe.category)}</span>
+            </div>
+          </div>
+          <span class="card-category-badge">${recipe.category}</span>
+          <button class="card-fav-btn ${isFav ? 'is-fav' : ''}" data-id="${recipe.id}">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">${recipe.title}</h3>
+          <p class="card-desc">${recipe.description}</p>
+          <div class="card-meta">
+            <div class="meta-item">
+              <span>Prep + Coc</span>
+              <span class="meta-val">${recipe.prepTime} + ${recipe.cookTime}</span>
+            </div>
+            <div class="meta-item">
+              <span>Dificultad</span>
+              <span class="meta-val">${recipe.difficulty}</span>
+            </div>
+            <div class="meta-item">
+              <span>Calorías</span>
+              <span class="meta-val">${recipe.calories} kcal</span>
+            </div>
+          </div>
+          <button class="card-footer-btn" data-id="${recipe.id}">Ver Receta</button>
+        </div>
+      `;
+
+      // Event Listeners para la tarjeta
+      card.querySelector('.card-fav-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFavorite(recipe.id, e.currentTarget);
+      });
+
+      card.querySelector('.card-footer-btn').addEventListener('click', () => {
+        openRecipeModal(recipe);
+      });
+
+      recipesGrid.appendChild(card);
+    });
+  }
+
+  // Helper para gradientes según categoría
+  function getFallbackGradient(category) {
+    switch(category) {
+      case 'Desayunos y Brunch': return 'var(--grad-primary)';
+      case 'Aperitivos y Snacks': return 'var(--grad-royal)';
+      case 'Aves y Carnes': return 'var(--grad-sunset)';
+      case 'Pescados y Mariscos': return 'var(--grad-ocean)';
+      case 'Verduras y Acompañamientos': return 'var(--grad-accent)';
+      case 'Postres Saludables': return 'var(--grad-berry)';
+      default: return 'var(--grad-primary)';
+    }
+  }
+
+  // Helper para emoticonos representativos según categoría
+  function getCategoryEmoji(category) {
+    switch(category) {
+      case 'Desayunos y Brunch': return '🍳';
+      case 'Aperitivos y Snacks': return '🧆';
+      case 'Aves y Carnes': return '🍗';
+      case 'Pescados y Mariscos': return '🐟';
+      case 'Verduras y Acompañamientos': return '🥦';
+      case 'Postres Saludables': return '🧁';
+      default: return '🍽️';
+    }
+  }
+
+  // ==========================================
+  // GESTIÓN DE FAVORITOS (LOCALSTORAGE)
+  // ==========================================
+  function toggleFavorite(id, buttonEl) {
+    const index = favorites.indexOf(id);
+    if (index === -1) {
+      favorites.push(id);
+      buttonEl.classList.add('is-fav');
+    } else {
+      favorites.splice(index, 1);
+      buttonEl.classList.remove('is-fav');
+    }
+    localStorage.setItem('airfryer_favs', JSON.stringify(favorites));
+    
+    // Si estamos viendo solo favoritos, volver a renderizar
+    if (showFavoritesOnly) {
+      renderRecipes();
+    }
+  }
+
+  // ==========================================
+  // MODAL DETALLE DE RECETA
+  // ==========================================
+  function openRecipeModal(recipe) {
+    const imagePath = CLOUDINARY_IMAGES[recipe.id] || `images/recipes/recipe_${recipe.id}.png`;
+    modalBanner.style.display = 'block';
+    const modalPlaceholder = document.getElementById('modal-placeholder');
+    modalPlaceholder.style.display = 'none';
+
+    modalBanner.src = imagePath;
+    modalBanner.alt = recipe.title;
+    modalBanner.onerror = function() {
+      this.style.display = 'none';
+      modalPlaceholder.style.display = 'flex';
+      document.getElementById('modal-placeholder-emoji').innerText = getCategoryEmoji(recipe.category);
+      this.parentNode.style.background = getFallbackGradient(recipe.category);
+    };
+
+    modalCategory.innerText = recipe.category;
+    modalTitle.innerText = recipe.title;
+    modalDesc.innerText = recipe.description;
+    
+    modalTime.innerText = `${recipe.prepTime} / ${recipe.cookTime}`;
+    modalDifficulty.innerText = recipe.difficulty;
+    modalCalories.innerText = `${recipe.calories} kcal`;
+    modalServings.innerText = `${recipe.servings} ración/es`;
+
+    // Renderizar ingredientes interactivos con checkboxes
+    modalIngredientsList.innerHTML = '';
+    recipe.ingredients.forEach((ing, i) => {
+      const li = document.createElement('li');
+      li.className = 'ingredient-item';
+      li.innerHTML = `
+        <input type="checkbox" id="ing-${recipe.id}-${i}">
+        <label for="ing-${recipe.id}-${i}">${ing}</label>
+      `;
+      li.addEventListener('click', (e) => {
+        // Toggle de tachado
+        if (e.target.tagName === 'INPUT') {
+          li.classList.toggle('checked', e.target.checked);
+        }
+      });
+      modalIngredientsList.appendChild(li);
+    });
+
+    // Renderizar pasos paso a paso
+    modalStepsList.innerHTML = '';
+    recipe.steps.forEach((step, i) => {
+      const li = document.createElement('li');
+      li.className = 'step-item';
+      li.innerHTML = `
+        <div class="step-num">${i + 1}</div>
+        <div class="step-text">${step}</div>
+      `;
+      modalStepsList.appendChild(li);
+    });
+
+    // Tips del Chef
+    if (recipe.tips) {
+      modalChefTips.innerText = recipe.tips;
+      document.querySelector('.chef-tips-card').style.display = 'flex';
+    } else {
+      document.querySelector('.chef-tips-card').style.display = 'none';
+    }
+
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  modalCloseBtn.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  // Cerrar modal con la tecla Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ==========================================
+  // COMPILACIÓN DINÁMICA DEL LIBRO PARA IMPRESIÓN PDF
+  // ==========================================
+  function compilePrintLayout() {
+    // Generar la portada del PDF, la introducción, el índice y todas las 80 recetas
+    let htmlContent = '';
+
+    // Precalcular los números de página exactos
+    let currentPage = 4; // Páginas: 1 (Portada), 2 (Intro), 3 (Índice 1), 4 (Índice 2)
+    const recipePages = {};
+    let currentCat = '';
+
+    window.recipes.forEach(recipe => {
+      if (recipe.category !== currentCat) {
+        currentCat = recipe.category;
+        currentPage++; // Añade 1 página por el divisor de categoría
+      }
+      currentPage++; // Añade 1 página por la receta
+      recipePages[recipe.id] = currentPage;
+    });
+
+    // 1. Portada del Libro (Página 1)
+    htmlContent += `
+      <div class="print-page print-cover">
+        <div class="print-cover-badge">Libro Digital Premium</div>
+        <h1 class="print-cover-title">80 RECETAS SANAS<br>PARA FREIDORA DE AIRE</h1>
+        <p class="print-cover-subtitle">Cocina Saludable, Innovadora y Crujiente Sin Aceite</p>
+        <div class="print-cover-meta">
+          <p>Colección Completa de Recetas Fáciles y Nutritivas</p>
+          <p style="margin-top: 10px; font-weight: bold;">Edición PDF de Alta Calidad</p>
+        </div>
+      </div>
+    `;
+
+    // 2. Introducción (Página 2)
+    htmlContent += `
+      <div class="print-page print-section">
+        <h2 class="print-section-title">Introducción</h2>
+        <div class="print-intro-content">
+          <p>Bienvenido al recetario definitivo para tu freidora de aire. En este libro digital encontrarás una selección exclusiva de <strong>80 recetas saludables, innovadoras y equilibradas</strong>, diseñadas meticulosamente para sacar el máximo partido a tu electrodoméstico estrella.</p>
+          <p>La tecnología de circulación de aire caliente nos permite conseguir texturas crujientes por fuera y jugosas por dentro con hasta un 85% menos de grasa en comparación con las frituras tradicionales. Pero este libro va más allá de las clásicas patatas o alitas. Aquí descubrirás cómo elaborar desayunos sofisticados, aperitivos sorprendentes para tus invitados, carnes magras, pescados al punto y postres deliciosamente saludables, todo de forma rápida y limpia.</p>
+          <h3 style="margin-top: 25px; margin-bottom: 10px; font-family: var(--font-serif);">Consejos Esenciales para el Éxito en tu Freidora:</h3>
+          <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
+            <li><strong>Precalienta siempre:</strong> Al igual que un horno tradicional, la freidora funciona mucho mejor cuando empieza ya caliente (2-3 minutos son suficientes).</li>
+            <li><strong>No sobrecargues la cesta:</strong> Deja suficiente espacio libre para que el aire circule adecuadamente y la comida quede crujiente.</li>
+            <li><strong>Agita a mitad del tiempo:</strong> Mover los ingredientes garantiza una cocción y un dorado 100% uniformes.</li>
+            <li><strong>Usa un pulverizador de aceite:</strong> Una sola pulverización es suficiente para dar ese toque crujiente dorado ideal.</li>
+          </ul>
+        </div>
+        <div class="print-page-footer">
+          <span>80 Recetas Sanas para Freidora de Aire</span>
+          <span>Introducción</span>
+        </div>
+      </div>
+    `;
+
+    // 3. Tabla de Contenido / Índice (Páginas 3 y 4)
+    htmlContent += `
+      <div class="print-page print-section">
+        <h2 class="print-section-title">Índice del Libro</h2>
+        <div class="print-toc-grid">
+    `;
+
+    // Añadir cada receta al índice con puntos conductores
+    window.recipes.forEach((recipe, idx) => {
+      // Si estamos a la mitad (receta 41), cerramos la cuadrícula actual y creamos una nueva página de índice para el resto de recetas
+      if (idx === 40) {
+        htmlContent += `
+            </div>
+            <div class="print-page-footer">
+              <span>80 Recetas Sanas para Freidora de Aire</span>
+              <span>Índice</span>
+            </div>
+          </div>
+          <div class="print-page print-section">
+            <h2 class="print-section-title">Índice del Libro (Cont.)</h2>
+            <div class="print-toc-grid">
+        `;
+      }
+
+      htmlContent += `
+        <div class="print-toc-item">
+          <span style="font-weight: bold; width: 25px;">${recipe.id}.</span>
+          <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;">${recipe.title}</span>
+          <div class="print-toc-dots"></div>
+          <span class="print-toc-page">Pág. ${recipePages[recipe.id]}</span>
+        </div>
+      `;
+    });
+
+    htmlContent += `
+        </div>
+        <div class="print-page-footer">
+          <span>80 Recetas Sanas para Freidora de Aire</span>
+          <span>Índice</span>
+        </div>
+      </div>
+    `;
+
+    // 4. Secciones por Categoría y Recetas
+    currentCategory = '';
+    let categoryIndex = 0;
+
+    window.recipes.forEach((recipe) => {
+      // Si cambiamos de categoría, agregamos una página separadora de categoría
+      if (recipe.category !== currentCategory) {
+        currentCategory = recipe.category;
+        categoryIndex++;
+
+        let catDesc = "";
+        if (currentCategory === "Desayunos y Brunch") catDesc = "Comienza tus mañanas con energía con estas opciones saludables que van desde pan casero hasta huevos perfectamente horneados.";
+        else if (currentCategory === "Aperitivos y Snacks") catDesc = "Bocados crujientes, dips cremosos y aperitivos saludables para picar o sorprender a tus invitados sin una gota de remordimientos.";
+        else if (currentCategory === "Aves y Carnes") catDesc = "Proteínas magras cocinadas de forma jugosa, con glaseados sabrosos e ingredientes limpios para tus comidas diarias.";
+        else if (currentCategory === "Pescados y Mariscos") catDesc = "Lomos de pescado en su punto y mariscos al ajillo que demuestran que el mar y la freidora de aire son una combinación excelente.";
+        else if (currentCategory === "Verduras y Acompañamientos") catDesc = "Guarniciones vegetales llenas de color, especias y texturas crujientes que se convertirán en las protagonistas de tu mesa.";
+        else if (currentCategory === "Postres Saludables") catDesc = "Bocados dulces elaborados con frutas, avena y edulcorantes naturales para disfrutar del dulce de forma consciente.";
+
+        htmlContent += `
+          <div class="print-page print-category-divider" style="border-left: 10px solid #ff5e62;">
+            <div class="print-cat-num">Sección ${categoryIndex}</div>
+            <h2 class="print-cat-name">${currentCategory}</h2>
+            <p class="print-cat-desc">${catDesc}</p>
+          </div>
+        `;
+      }
+
+      // Añadir página de receta individual
+      htmlContent += `
+        <div class="print-page print-recipe">
+          <div class="print-recipe-header-container">
+            <div class="print-recipe-image-wrapper">
+              <img src="${CLOUDINARY_IMAGES[recipe.id] || `images/recipes/recipe_${recipe.id}.png`}" class="print-recipe-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="print-recipe-placeholder" style="display: none; background: ${getFallbackGradient(recipe.category)}">
+                <span>${getCategoryEmoji(recipe.category)}</span>
+              </div>
+            </div>
+            <div style="flex-grow: 1; min-width: 0;">
+              <span class="print-recipe-category">${recipe.category}</span>
+              <h3 class="print-recipe-title">${recipe.title}</h3>
+            </div>
+            <div class="print-recipe-id">#${recipe.id}</div>
+          </div>
+
+          <p class="print-recipe-desc">${recipe.description}</p>
+
+          <div class="print-recipe-meta">
+            <div class="print-meta-item"><strong>Prep:</strong> ${recipe.prepTime}</div>
+            <div class="print-meta-item"><strong>Cocción:</strong> ${recipe.cookTime}</div>
+            <div class="print-meta-item"><strong>Raciones:</strong> ${recipe.servings}</div>
+            <div class="print-meta-item"><strong>Calorías:</strong> ${recipe.calories} kcal</div>
+            <div class="print-meta-item"><strong>Dificultad:</strong> ${recipe.difficulty}</div>
+          </div>
+
+          <div class="print-recipe-body">
+            <div class="print-ingredients">
+              <h4>Ingredientes</h4>
+              <ul class="print-ingredients-list">
+                ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="print-instructions">
+              <h4>Paso a Paso</h4>
+              <ol class="print-instructions-list">
+                ${recipe.steps.map((step, idx) => `<li><strong>${idx + 1}.</strong> ${step}</li>`).join('')}
+              </ol>
+            </div>
+          </div>
+
+          ${recipe.tips ? `
+            <div class="print-chef-tips">
+              <strong>Consejo del Chef:</strong> ${recipe.tips}
+            </div>
+          ` : ''}
+
+          <div class="print-page-footer">
+            <span>80 Recetas Sanas para Freidora de Aire</span>
+            <span>Receta #${recipe.id} - Pág. ${recipePages[recipe.id]}</span>
+          </div>
+        </div>
+      `;
+    });
+
+    // Guardar en el DOM
+    printBookLayout.innerHTML = htmlContent;
+  }
+
+  // ==========================================
+  // DISPARAR DIÁLOGO DE IMPRESIÓN (PDF)
+  // ==========================================
+  printBtn.addEventListener('click', () => {
+    // Abrir el panel de impresión estándar del navegador
+    // En las hojas de estilo, @media print se encargará de ocultar la interfaz web y mostrar el formato libro
+    window.print();
+  });
+});
+
+</script>
 </body>
 </html>
+
