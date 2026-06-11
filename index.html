@@ -205,20 +205,27 @@ body {
   fill: currentColor;
 }
 
-/* Cabecera / Navegación */
+/* Cabecera / Navegación (Pill Dock Flotante) */
 .main-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  background-color: transparent;
-  border-bottom: none;
-  padding: 1.25rem 2rem;
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10000;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 0.5rem 0.75rem;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  box-shadow: var(--shadow-lg);
   transition: all var(--transition-normal);
+}
+
+.main-header:hover {
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(255, 94, 98, 0.3);
 }
 
 .logo {
@@ -1714,13 +1721,6 @@ body {
         <!-- El icono se renderiza dinámicamente vía JS -->
       </button>
       
-      <!-- Botón Exportar PDF Directo (Pequeño) -->
-      <button class="btn-icon" id="print-btn" title="Imprimir / Exportar PDF Directo">
-        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
-          <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
-        </svg>
-      </button>
-
       <!-- Botón Descargar PDF con Advertencia (Pequeño) -->
       <button class="btn-icon" id="download-btn" title="Descargar PDF (Con Advertencia)">
         <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: currentColor;">
@@ -4811,13 +4811,12 @@ document.addEventListener('DOMContentLoaded', () => {
     printBookLayout.innerHTML = htmlContent;
   }
 
-  // ==========================================
-  // DISPARAR DIÁLOGO DE IMPRESIÓN (PDF)
-  // ==========================================
-  printBtn.addEventListener('click', () => {
-    // Abrir el panel de impresión estándar del navegador
-    window.print();
-  });
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      // Abrir el panel de impresión estándar del navegador
+      window.print();
+    });
+  }
 
   // ==========================================
   // ADVERTENCIA DE DESCARGA (POPUP)
