@@ -1,1 +1,266 @@
-blablabla
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>80 Recetas Sanas para Freidora de Aire - Libro Digital Premium</title>
+  <meta name="description" content="Descubre 80 recetas saludables, innovadoras y deliciosas para cocinar en tu freidora de aire. Libro digital interactivo listo para imprimir en formato PDF.">
+  <meta name="keywords" content="recetas sanas, freidora de aire, air fryer, recetas saludables, libro de cocina, pdf, cocina sin aceite">
+  <meta name="author" content="Ebook Premium">
+  
+  <!-- Icono o Favicon (opcional) -->
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+  
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       PANTALLA DE LOGIN / ACCESO EXCLUSIVO
+       ========================================================================== -->
+  <div id="login-overlay" class="login-overlay">
+    <div class="login-bg-decor"></div>
+    <div class="login-card">
+      <div class="login-logo">🔥</div>
+      <h2>Acceso Exclusivo</h2>
+      <p>Introduce la contraseña de tu recetario para desbloquear las 80 recetas saludables.</p>
+      
+      <form id="login-form">
+        <div class="input-group">
+          <input type="password" id="login-password" placeholder="Contraseña de acceso" required autocomplete="current-password">
+        </div>
+        <div id="login-error" class="login-error-msg">Contraseña incorrecta. Por favor, inténtalo de nuevo.</div>
+        <button type="submit" class="btn-login">Desbloquear Recetario</button>
+      </form>
+      
+      <div class="login-footer">
+        <p>¿Problemas con tu acceso? Revisa el PDF de Hotmart o contacta a soporte.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SECCIÓN 1: PORTADA DEL EBOOK (HERO)
+       ========================================================================== -->
+  <section class="cover-hero" id="cover-section">
+    <div class="cover-badge" id="cover-badge-id">Libro Digital Interactivo</div>
+    <h1 class="cover-title" id="cover-main-title">80 Recetas Sanas para<br><span>Freidora de Aire</span></h1>
+    <p class="cover-subtitle" id="cover-desc">Cocina platos innovadores, crujientes y saludables sin usar aceite. Colección premium de recetas estructuradas y listas para exportar a PDF.</p>
+    
+    <a href="#main-app" class="scroll-indicator" id="scroll-btn">
+      <span>Explorar Recetas</span>
+      <svg viewBox="0 0 24 24">
+        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+      </svg>
+    </a>
+    
+    <div class="cover-meta" id="cover-meta-info">
+      <span>80 Recetas Saludables</span>
+      <span>•</span>
+      <span>Formato Web & PDF</span>
+      <span>•</span>
+      <span>Edición Premium</span>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECCIÓN 2: CABECERA / NAVEGACIÓN PRINCIPAL
+       ========================================================================== -->
+  <header class="main-header" id="main-header-id">
+    <a href="#cover-section" class="logo" id="logo-link">AirFryer Ebook</a>
+    <div class="header-controls">
+      <!-- Cambiador de Tema Claro/Oscuro -->
+      <button class="btn-icon" id="theme-toggle" title="Cambiar Tema (Claro / Oscuro)">
+        <!-- El icono se renderiza dinámicamente vía JS -->
+      </button>
+      
+      <!-- Botón Exportar PDF / Imprimir -->
+      <button class="btn-primary" id="print-btn" title="Exportar recetario completo a formato PDF">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+        </svg>
+        <span>Exportar PDF</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal de la App -->
+  <main id="main-app">
+    
+    <!-- ==========================================================================
+         SECCIÓN 3: INTRODUCCIÓN DEL LIBRO
+         ========================================================================== -->
+    <section class="intro-section" id="intro-section-id">
+      <h2 class="section-title" id="intro-title">El Arte de Freír Sin Aceite</h2>
+      <div class="intro-grid">
+        <img class="intro-image" id="intro-img" src="https://res.cloudinary.com/daijidw3t/image/upload/v1781205656/intro_image_gqk920.jpg" alt="Cocina Saludable en Freidora de Aire" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23g)%22/><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%23ff5e62%22/><stop offset=%22100%25%22 stop-color=%22%23ff9966%22/></linearGradient></defs></svg>'">
+        <div class="intro-content">
+          <p>La freidora de aire se ha convertido en el electrodoméstico indispensable en los hogares conscientes de la salud. Utilizando aire sobrecalentado que circula a gran velocidad, imita los resultados de una fritura tradicional logrando alimentos dorados y crujientes, pero con hasta un <strong>85% menos de grasa y calorías</strong>.</p>
+          <p>En este recetario, te presentamos <strong>80 recetas originales y saludables</strong> organizadas en seis completas secciones para cubrir cada momento del día. Desde desayunos proteicos para arrancar con fuerza hasta postres fit muy sabrosos.</p>
+          
+          <div class="intro-features">
+            <div class="feature-box" id="feat-1">
+              <div class="feature-icon">🥗</div>
+              <h4>100% Saludable</h4>
+              <p>Control estricto de grasas y calorías.</p>
+            </div>
+            <div class="feature-box" id="feat-2">
+              <div class="feature-icon">✨</div>
+              <h4>Innovación</h4>
+              <p>Sabores gourmet y combinaciones creativas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 4: BARRA DE BÚSQUEDA Y FILTROS INTERACTIVOS
+         ========================================================================== -->
+    <section class="search-filter-container" id="filters-section">
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24">
+          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="text" class="search-input" id="search-input" placeholder="Buscar recetas por título, ingredientes o palabras clave...">
+      </div>
+      
+      <div class="filters-wrapper">
+        <!-- Filtros por Categoría -->
+        <div class="filter-group" id="category-filter-group">
+          <button class="filter-badge active" data-category="all" id="badge-all">Todas</button>
+          <button class="filter-badge" data-category="Desayunos y Brunch" id="badge-breakfast">Desayunos</button>
+          <button class="filter-badge" data-category="Aperitivos y Snacks" id="badge-snacks">Aperitivos</button>
+          <button class="filter-badge" data-category="Aves y Carnes" id="badge-meats">Carnes</button>
+          <button class="filter-badge" data-category="Pescados y Mariscos" id="badge-seafood">Pescados</button>
+          <button class="filter-badge" data-category="Verduras y Acompañamientos" id="badge-vegetables">Verduras</button>
+          <button class="filter-badge" data-category="Postres Saludables" id="badge-desserts">Postres</button>
+        </div>
+        
+        <!-- Filtro por Dificultad -->
+        <select class="select-filter" id="difficulty-filter" aria-label="Filtrar por dificultad">
+          <option value="all">Todas las dificultades</option>
+          <option value="Fácil">Fácil</option>
+          <option value="Medio">Medio</option>
+          <option value="Difícil">Difícil</option>
+        </select>
+        
+        <!-- Interruptor Favoritos -->
+        <label class="favorites-toggle" id="fav-toggle-label" for="fav-toggle">
+          <input type="checkbox" id="fav-toggle">
+          <div class="toggle-slider"></div>
+          <span>Mis Favoritos</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN 5: GRID DE RECETAS DINÁMICO
+         ========================================================================== -->
+    <section class="recipes-section">
+      <div class="recipes-grid" id="recipes-grid">
+        <!-- El contenido se cargará dinámicamente con JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       SECCIÓN 6: MODAL DETALLE DE RECETA
+       ========================================================================== -->
+  <div class="modal-overlay" id="recipe-modal">
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar ventana emergente">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+      
+      <!-- Banner superior de imagen -->
+      <div class="modal-banner">
+        <img id="modal-banner-img" src="" alt="">
+        <div class="card-placeholder-illustration" id="modal-placeholder" style="display: none;">
+          <div class="placeholder-glass">
+            <span class="placeholder-emoji" id="modal-placeholder-emoji">🍳</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contenido de la receta -->
+      <div class="modal-content">
+        <div class="modal-header-info">
+          <span class="modal-category" id="modal-category">Categoría</span>
+          <h2 class="modal-title" id="modal-title">Título de la Receta</h2>
+          <p class="modal-desc" id="modal-desc">Una breve descripción de la receta y sus cualidades.</p>
+        </div>
+        
+        <!-- Ficha técnica rápida -->
+        <div class="modal-meta-grid">
+          <div class="meta-item">
+            <span>Prep / Cocción</span>
+            <strong class="meta-val" id="modal-time-val">10m / 15m</strong>
+          </div>
+          <div class="meta-item">
+            <span>Dificultad</span>
+            <strong class="meta-val" id="modal-difficulty-val">Fácil</strong>
+          </div>
+          <div class="meta-item">
+            <span>Calorías</span>
+            <strong class="meta-val" id="modal-calories-val">250 kcal</strong>
+          </div>
+          <div class="meta-item">
+            <span>Porciones</span>
+            <strong class="meta-val" id="modal-servings-val">2 porciones</strong>
+          </div>
+        </div>
+        
+        <!-- Ingredientes y Pasos -->
+        <div class="modal-ingredients-instructions">
+          <div class="modal-ingredients">
+            <h3 class="modal-section-title">Ingredientes</h3>
+            <ul class="ingredients-list" id="modal-ingredients-list">
+              <!-- Cargado dinámicamente con JS -->
+            </ul>
+          </div>
+          
+          <div class="modal-instructions">
+            <h3 class="modal-section-title">Paso a Paso</h3>
+            <ol class="steps-list" id="modal-steps-list">
+              <!-- Cargado dinámicamente con JS -->
+            </ol>
+          </div>
+        </div>
+        
+        <!-- Consejo del chef -->
+        <div class="chef-tips-card">
+          <span class="chef-icon">👨‍🍳</span>
+          <div class="chef-tips-content">
+            <h4>Consejo de Cocina de Aire</h4>
+            <p id="modal-chef-tips-text">Consejos para sacar el máximo partido a esta receta en particular.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SECCIÓN 7: VISTA DE LIBRO COMPLETO MAQUETADA PARA IMPRESIÓN (PDF)
+       ========================================================================== -->
+  <div id="print-book-layout">
+    <!-- El libro en formato imprimible se generará aquí dinámicamente mediante JS en tiempo de ejecución -->
+  </div>
+
+  <!-- ==========================================================================
+       PIE DE PÁGINA (PANTALLA)
+       ========================================================================== -->
+  <footer class="footer" id="main-footer-id">
+    <p>&copy; 2026 Ebook Digital de Cocina Saludable. Todos los derechos reservados.</p>
+    <p>Diseñado con colores vibrantes y optimizado para exportar a formato PDF A4.</p>
+  </footer>
+
+  <!-- Scripts JavaScript (Carga en orden) -->
+  <script src="js/recipes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
